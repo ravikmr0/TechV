@@ -1,27 +1,69 @@
 import { Card } from "@/components/ui/card";
-import { Brain, Monitor, Bot, Cog } from "lucide-react";
 import { GradientButton } from "@/components/ui/gradient-button";
+import {
+  Code2,
+  Shield,
+  Settings,
+  Brain,
+  Cloud,
+  Network,
+  HeadsetIcon,
+  ShoppingCart,
+} from "lucide-react";
 
 const services = [
   {
+    icon: Code2,
+    title: "IT & Software Development",
+    description:
+      "Custom software solutions, web & mobile app development, API integration",
+    link: "/services/software-development",
+  },
+  {
+    icon: Shield,
+    title: "Cybersecurity & Compliance",
+    description:
+      "Security audits, threat protection, compliance management, data security",
+    link: "/services/cybersecurity",
+  },
+  {
+    icon: Settings,
+    title: "Managed IT Services",
+    description:
+      "24/7 system monitoring, maintenance, IT infrastructure management",
+    link: "/services/managed-services",
+  },
+  {
     icon: Brain,
-    title: "AI Development",
-    description: "AI models, NLP, ML solutions, AI-driven automation",
+    title: "Digital Transformation & AI",
+    description:
+      "AI integration, process automation, digital strategy consulting",
+    link: "/services/digital-transformation",
   },
   {
-    icon: Monitor,
-    title: "IT Services & Consulting",
-    description: "Cloud solutions, cybersecurity, enterprise IT",
+    icon: Cloud,
+    title: "Cloud Computing & Hosting",
+    description: "Cloud migration, hosting solutions, scalable infrastructure",
+    link: "/services/cloud-computing",
   },
   {
-    icon: Bot,
-    title: "AI Agent Design",
-    description: "Conversational AI, virtual assistants, AI-powered chatbots",
+    icon: Network,
+    title: "Networking & Infrastructure",
+    description: "Network design, implementation, security & maintenance",
+    link: "/services/networking",
   },
   {
-    icon: Cog,
-    title: "Custom Software Development",
-    description: "Web & mobile applications, automation tools",
+    icon: HeadsetIcon,
+    title: "Tech Support & IT Outsourcing",
+    description: "24/7 technical support, IT consulting, resource augmentation",
+    link: "/services/tech-support",
+  },
+  {
+    icon: ShoppingCart,
+    title: "E-commerce & Digital Solutions",
+    description:
+      "Online store development, payment integration, digital marketing",
+    link: "/services/ecommerce",
   },
 ];
 
@@ -31,26 +73,70 @@ export function Services() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Empowering Businesses with Next-Gen IT & AI Solutions
+            Comprehensive IT & AI Solutions
           </h2>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-            From AI-driven automation to IT consulting, we provide tailored
-            solutions for business transformation.
+            From software development to AI integration, we provide end-to-end
+            technology solutions for your business
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 mb-12">
           {services.map((service, index) => (
-            <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
-              <service.icon className="w-12 h-12 text-indigo-500 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-              <p className="text-slate-600">{service.description}</p>
+            <Card
+              key={index}
+              className="p-6 hover:shadow-lg transition-shadow group cursor-pointer"
+            >
+              <div className="mb-4 relative">
+                <div className="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center group-hover:bg-indigo-500/20 transition-colors">
+                  <service.icon className="w-6 h-6 text-indigo-500" />
+                </div>
+                <div className="absolute -inset-2 rounded-lg bg-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-indigo-500 transition-colors">
+                {service.title}
+              </h3>
+              <p className="text-slate-600 mb-4">{service.description}</p>
+              <a
+                href={service.link}
+                className="text-sm font-medium text-indigo-500 hover:text-indigo-600 inline-flex items-center"
+              >
+                Learn more
+                <svg
+                  className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
             </Card>
           ))}
         </div>
 
         <div className="text-center">
-          <GradientButton size="lg">Explore Our Services</GradientButton>
+          <GradientButton size="lg" className="group">
+            <span>Explore All Services</span>
+            <svg
+              className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </GradientButton>
         </div>
       </div>
     </section>
