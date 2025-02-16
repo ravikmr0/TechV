@@ -10,6 +10,7 @@ import {
   Youtube,
   Instagram,
   MessageCircle,
+  Phone,
 } from "lucide-react";
 
 const quickLinks = [
@@ -23,6 +24,10 @@ const quickLinks = [
   { name: "Careers", href: "/careers" },
   { name: "Contact Us", href: "/contact" },
 ];
+
+const contactInfo = {
+  phone: "+91 7895849990",
+};
 
 const services = [
   "IT Consulting & Cloud Solutions",
@@ -41,11 +46,27 @@ const industries = [
 ];
 
 const socialLinks = [
-  { name: "LinkedIn", icon: Linkedin, href: "#" },
-  { name: "Twitter", icon: Twitter, href: "#" },
-  { name: "Facebook", icon: Facebook, href: "#" },
-  { name: "YouTube", icon: Youtube, href: "#" },
-  { name: "Instagram", icon: Instagram, href: "#" },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/techvexor",
+  },
+  { name: "Twitter", icon: Twitter, href: "https://x.com/techvexor" },
+  {
+    name: "Facebook",
+    icon: Facebook,
+    href: "https://www.facebook.com/techvexor",
+  },
+  {
+    name: "YouTube",
+    icon: Youtube,
+    href: "https://www.youtube.com/@techvexor",
+  },
+  {
+    name: "Instagram",
+    icon: Instagram,
+    href: "http://instagram.com/techvexor/",
+  },
 ];
 
 export function Footer() {
@@ -110,6 +131,10 @@ export function Footer() {
           {/* Newsletter & Social */}
           <div>
             <h3 className="text-xl font-bold mb-6">Stay Connected</h3>
+            <p className="text-slate-300 mb-4 flex items-center">
+              <Phone className="w-4 h-4 mr-2" />
+              {contactInfo.phone}
+            </p>
             <Card className="p-4 bg-white/5 backdrop-blur-sm border-slate-800 mb-6">
               <p className="text-sm text-slate-300 mb-4">
                 Stay Ahead with AI & IT Innovations – Join Our Exclusive
