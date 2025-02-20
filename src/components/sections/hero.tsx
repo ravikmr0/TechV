@@ -18,7 +18,6 @@ export function Hero() {
           Tech Vexor delivers state-of-the-art IT services, AI development, and
           AI agent design to revolutionize your business operations.
         </p>
-
         <a href="tel:+917895849990">
           <GradientButton size="lg">Get a Free Consultation</GradientButton>
         </a>

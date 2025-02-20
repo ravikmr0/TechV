@@ -3,17 +3,23 @@ import { Button } from "@/components/ui/button";
 import { Diamond, LogIn, Rocket, Search, Menu, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const navItems = [
-  { label: "Services", icon: <Diamond className="w-4 h-4" /> },
-  { label: "Projects", icon: <Diamond className="w-4 h-4" /> },
-  { label: "AI Solutions", icon: <Diamond className="w-4 h-4" /> },
-  { label: "Contact", icon: <Diamond className="w-4 h-4" /> },
+  {
+    label: "Services",
+    icon: <Diamond className="w-4 h-4" />,
+    href: "/services",
+  },
+  { label: "Projects", icon: <Diamond className="w-4 h-4" />, href: "#" },
+  { label: "AI Solutions", icon: <Diamond className="w-4 h-4" />, href: "#" },
+  { label: "Contact", icon: <Diamond className="w-4 h-4" />, href: "#" },
 ];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   // Handle scroll effect
   useEffect(() => {
@@ -33,9 +39,11 @@ export function Header() {
         <div className="flex items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
-              Tech Vexor
-            </span>
+            <Link to="/">
+              <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
+                Tech Vexor
+              </span>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -55,14 +63,14 @@ export function Header() {
             {/* Navigation Items */}
             <nav className="flex items-center space-x-6">
               {navItems.map((item, index) => (
-                <a
+                <Link
                   key={index}
-                  href="#"
+                  to={item.href}
                   className="flex items-center space-x-1 text-sm text-slate-300 hover:text-white transition-colors"
                 >
                   {item.icon}
                   <span>{item.label}</span>
-                </a>
+                </Link>
               ))}
             </nav>
 
@@ -132,14 +140,15 @@ export function Header() {
             {/* Mobile Navigation */}
             <nav className="space-y-4 mb-6">
               {navItems.map((item, index) => (
-                <a
+                <Link
                   key={index}
-                  href="#"
+                  to={item.href}
+                  onClick={() => setIsMenuOpen(false)}
                   className="flex items-center space-x-2 text-slate-300 hover:text-white transition-colors py-2 text-lg"
                 >
                   {item.icon}
                   <span>{item.label}</span>
-                </a>
+                </Link>
               ))}
             </nav>
 
