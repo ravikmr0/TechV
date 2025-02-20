@@ -19,7 +19,9 @@ export function Hero() {
           AI agent design to revolutionize your business operations.
         </p>
 
-        <GradientButton size="lg">Get a Free Consultation</GradientButton>
+        <a href="tel:+917895849990">
+          <GradientButton size="lg">Get a Free Consultation</GradientButton>
+        </a>
       </div>
     </div>
   );
