@@ -11,7 +11,11 @@ const navItems = [
     icon: <Diamond className="w-4 h-4" />,
     href: "/services",
   },
-  { label: "Projects", icon: <Diamond className="w-4 h-4" />, href: "#" },
+  {
+    label: "Projects",
+    icon: <Diamond className="w-4 h-4" />,
+    href: "/projects",
+  },
   { label: "AI Solutions", icon: <Diamond className="w-4 h-4" />, href: "#" },
   { label: "Contact", icon: <Diamond className="w-4 h-4" />, href: "#" },
 ];
@@ -92,7 +96,14 @@ export function Header() {
                 <LogIn className="w-4 h-4" />
                 <span>Login</span>
               </Button>
-              <GradientButton size="sm">Get Started</GradientButton>
+              <GradientButton
+                size="sm"
+                onClick={() =>
+                  window.open("https://wa.me/917895849990", "_blank")
+                }
+              >
+                Get Started
+              </GradientButton>
             </div>
           </div>
 
@@ -168,7 +179,12 @@ export function Header() {
                 <LogIn className="w-5 h-5 mr-2" />
                 Login
               </Button>
-              <GradientButton className="w-full text-lg">
+              <GradientButton
+                className="w-full text-lg"
+                onClick={() =>
+                  window.open("https://wa.me/917895849990", "_blank")
+                }
+              >
                 Get Started
               </GradientButton>
             </div>

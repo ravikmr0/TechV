@@ -172,7 +172,9 @@ export function Footer() {
 
         {/* Sticky CTA */}
         <div className="fixed bottom-4 right-4 z-50 flex space-x-4">
-          <GradientButton>🚀 Get a Free Consultation</GradientButton>
+          <a href="tel:+917895849990">
+            <GradientButton>🚀 Get a Free Consultation</GradientButton>
+          </a>
           <Button className="bg-indigo-500 hover:bg-indigo-600">
             <MessageCircle className="w-5 h-5" />
           </Button>
