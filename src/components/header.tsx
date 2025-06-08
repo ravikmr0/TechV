@@ -16,8 +16,12 @@ const navItems = [
     icon: <Diamond className="w-4 h-4" />,
     href: "/projects",
   },
-  { label: "AI Solutions", icon: <Diamond className="w-4 h-4" />, href: "#" },
-  { label: "Contact", icon: <Diamond className="w-4 h-4" />, href: "#" },
+  {
+    label: "AI Solutions",
+    icon: <Diamond className="w-4 h-4" />,
+    href: "/ai-solutions",
+  },
+  { label: "Contact", icon: <Diamond className="w-4 h-4" />, href: "/contact" },
 ];
 
 export function Header() {
