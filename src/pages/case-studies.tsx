@@ -3,7 +3,15 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
-import { ArrowRight, TrendingUp, Users, Clock, DollarSign } from "lucide-react";
+import {
+  ArrowRight,
+  TrendingUp,
+  Users,
+  Clock,
+  DollarSign,
+  Star,
+  Award,
+} from "lucide-react";
 
 const caseStudies = [
   {
@@ -12,9 +20,9 @@ const caseStudies = [
     client: "Global E-commerce Platform",
     industry: "E-commerce",
     challenge:
-      "High customer service costs and long response times affecting customer satisfaction",
+      "A leading e-commerce platform was struggling with escalating customer service costs and response times averaging 24+ hours, leading to declining customer satisfaction scores and increased churn rates.",
     solution:
-      "Implemented intelligent chatbot with NLP capabilities and automated ticket routing system",
+      "We developed and deployed an advanced AI-powered customer service ecosystem featuring intelligent chatbots with natural language processing, automated ticket routing, sentiment analysis, and seamless human handoff capabilities.",
     results: [
       { metric: "Response Time", improvement: "85% faster", icon: Clock },
       {
@@ -34,7 +42,7 @@ const caseStudies = [
       },
     ],
     image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
     tags: ["AI Chatbot", "NLP", "Customer Service", "Automation"],
   },
   {
@@ -43,9 +51,9 @@ const caseStudies = [
     client: "Leading Automotive Manufacturer",
     industry: "Manufacturing",
     challenge:
-      "Unexpected equipment failures causing production delays and high maintenance costs",
+      "The automotive manufacturer faced frequent unexpected equipment breakdowns resulting in costly production line shutdowns, emergency repairs, and missed delivery deadlines, impacting their reputation and bottom line.",
     solution:
-      "Deployed IoT sensors and ML algorithms for predictive maintenance and real-time monitoring",
+      "Our team implemented a comprehensive predictive maintenance solution using IoT sensors, machine learning algorithms, and real-time analytics to monitor equipment health, predict failures before they occur, and optimize maintenance schedules.",
     results: [
       {
         metric: "Downtime Reduction",
@@ -69,7 +77,7 @@ const caseStudies = [
       },
     ],
     image:
-      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&q=80",
+      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80",
     tags: ["Predictive Analytics", "IoT", "Machine Learning", "Manufacturing"],
   },
   {
@@ -78,9 +86,9 @@ const caseStudies = [
     client: "Regional Banking Institution",
     industry: "Finance",
     challenge:
-      "Increasing fraud attempts and false positives affecting customer experience",
+      "The regional bank was experiencing a surge in sophisticated fraud attempts while their existing systems generated excessive false positives, creating friction for legitimate customers and increasing operational costs.",
     solution:
-      "Developed advanced ML model for real-time fraud detection with behavioral analysis",
+      "We engineered a state-of-the-art machine learning fraud detection system incorporating behavioral analytics, transaction pattern recognition, and real-time risk scoring to accurately identify fraudulent activities while minimizing false positives.",
     results: [
       {
         metric: "Fraud Detection",
@@ -96,7 +104,7 @@ const caseStudies = [
       },
     ],
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
     tags: [
       "Fraud Detection",
       "Machine Learning",
@@ -110,9 +118,9 @@ const caseStudies = [
     client: "Retail Chain Network",
     industry: "Retail",
     challenge:
-      "Inventory imbalances leading to stockouts and overstock situations",
+      "The retail chain was losing millions annually due to inventory imbalances - frequent stockouts of popular items and excessive overstock of slow-moving products, resulting in lost sales and increased carrying costs.",
     solution:
-      "Implemented AI-driven demand forecasting and automated inventory optimization",
+      "We developed an intelligent inventory management platform using advanced demand forecasting algorithms, seasonal trend analysis, and automated reordering systems to optimize stock levels across all locations and product categories.",
     results: [
       {
         metric: "Inventory Turnover",
@@ -132,7 +140,7 @@ const caseStudies = [
       { metric: "Forecast Accuracy", improvement: "92% accurate", icon: Clock },
     ],
     image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80",
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
     tags: [
       "Demand Forecasting",
       "Inventory Optimization",
@@ -145,9 +153,10 @@ const caseStudies = [
     title: "Medical Diagnosis Assistant",
     client: "Healthcare Network",
     industry: "Healthcare",
-    challenge: "Need for faster and more accurate medical diagnosis support",
+    challenge:
+      "The healthcare network needed to improve diagnostic accuracy and speed while managing increasing patient volumes and reducing the burden on medical professionals, particularly in radiology and pathology departments.",
     solution:
-      "Developed AI-powered diagnostic assistant using computer vision and medical data analysis",
+      "Our team created an AI-powered diagnostic assistant leveraging computer vision, deep learning, and comprehensive medical data analysis to support healthcare professionals in making faster, more accurate diagnoses while maintaining the highest standards of patient care.",
     results: [
       { metric: "Diagnosis Speed", improvement: "60% faster", icon: Clock },
       {
@@ -167,7 +176,7 @@ const caseStudies = [
       },
     ],
     image:
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80",
+      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
     tags: ["Computer Vision", "Medical AI", "Diagnostic Support", "Healthcare"],
   },
   {
@@ -176,9 +185,9 @@ const caseStudies = [
     client: "Commercial Real Estate Company",
     industry: "Energy",
     challenge:
-      "High energy costs and inefficient building management across multiple properties",
+      "The commercial real estate company was facing escalating energy costs across their portfolio of office buildings, with inefficient HVAC systems, lighting, and overall building management leading to significant operational expenses and environmental impact.",
     solution:
-      "Deployed IoT-based smart energy management system with AI optimization algorithms",
+      "We implemented a comprehensive smart building solution featuring IoT sensors, AI-driven optimization algorithms, and automated control systems to intelligently manage energy consumption, optimize building operations, and reduce environmental footprint.",
     results: [
       {
         metric: "Energy Savings",
@@ -198,7 +207,7 @@ const caseStudies = [
       { metric: "ROI Achievement", improvement: "18 months", icon: Clock },
     ],
     image:
-      "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&q=80",
+      "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&q=80",
     tags: ["Smart Buildings", "Energy Optimization", "IoT", "Sustainability"],
   },
 ];
@@ -208,99 +217,141 @@ export default function CaseStudies() {
     <div className="min-h-screen bg-white">
       <Header />
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-50 py-20">
+      <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-200">
-              Success Stories
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Real Results from
-              <span className="text-blue-600"> Real Clients</span>
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="flex items-center justify-center mb-6">
+              <Award className="w-6 h-6 text-blue-600 mr-2" />
+              <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200 border-0 px-4 py-2">
+                Client Success Stories
+              </Badge>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+              Transforming Businesses with
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                {" "}
+                AI Innovation
+              </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Discover how we've helped businesses across industries transform
-              their operations with AI and achieve measurable results.
+            <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-4xl mx-auto">
+              Discover how industry leaders achieved remarkable results through
+              our cutting-edge AI solutions and strategic partnerships.
             </p>
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-              View All Case Studies
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 text-lg"
+              >
+                Explore Success Stories
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-gray-300 hover:border-blue-600 px-8 py-4 text-lg"
+              >
+                Start Your Journey
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Case Studies Grid */}
-      <section className="py-20">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="space-y-16">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Featured Success Stories
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Real transformations, measurable impact, lasting partnerships
+              </p>
+            </div>
+            <div className="space-y-20">
               {caseStudies.map((study, index) => (
                 <Card
                   key={study.id}
-                  className="overflow-hidden hover:shadow-xl transition-shadow"
+                  className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white"
                 >
                   <div
-                    className={`grid lg:grid-cols-2 gap-8 ${index % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
+                    className={`grid lg:grid-cols-2 gap-0 ${index % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
                   >
                     <div
-                      className={`${index % 2 === 1 ? "lg:col-start-2" : ""}`}
+                      className={`relative ${index % 2 === 1 ? "lg:col-start-2" : ""}`}
                     >
                       <img
                         src={study.image}
                         alt={study.title}
-                        className="w-full h-64 lg:h-full object-cover"
+                        className="w-full h-80 lg:h-full object-cover"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                     </div>
-                    <div className="p-8 lg:p-12">
-                      <div className="mb-4">
-                        <Badge className="mb-2 bg-gray-100 text-gray-800">
+                    <div className="p-8 lg:p-12 flex flex-col justify-center">
+                      <div className="mb-6">
+                        <Badge className="mb-4 bg-blue-100 text-blue-800 px-3 py-1 text-sm font-medium">
                           {study.industry}
                         </Badge>
-                        <h3 className="text-2xl lg:text-3xl font-bold mb-2">
+                        <h3 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900 leading-tight">
                           {study.title}
                         </h3>
-                        <p className="text-gray-600 font-medium">
+                        <p className="text-lg text-gray-600 font-medium mb-6">
                           {study.client}
                         </p>
                       </div>
 
-                      <div className="mb-6">
-                        <h4 className="font-semibold mb-2">Challenge:</h4>
-                        <p className="text-gray-600 mb-4">{study.challenge}</p>
+                      <div className="mb-8">
+                        <div className="mb-6">
+                          <h4 className="text-lg font-semibold mb-3 text-gray-900">
+                            The Challenge
+                          </h4>
+                          <p className="text-gray-600 leading-relaxed">
+                            {study.challenge}
+                          </p>
+                        </div>
 
-                        <h4 className="font-semibold mb-2">Solution:</h4>
-                        <p className="text-gray-600 mb-6">{study.solution}</p>
+                        <div className="mb-6">
+                          <h4 className="text-lg font-semibold mb-3 text-gray-900">
+                            Our Solution
+                          </h4>
+                          <p className="text-gray-600 leading-relaxed">
+                            {study.solution}
+                          </p>
+                        </div>
                       </div>
 
-                      <div className="mb-6">
-                        <h4 className="font-semibold mb-4">Results:</h4>
-                        <div className="grid grid-cols-2 gap-4">
+                      <div className="mb-8">
+                        <h4 className="text-lg font-semibold mb-6 text-gray-900">
+                          Key Results
+                        </h4>
+                        <div className="grid grid-cols-2 gap-6">
                           {study.results.map((result, idx) => (
                             <div
                               key={idx}
-                              className="flex items-center space-x-3"
+                              className="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-xl"
                             >
-                              <result.icon className="w-5 h-5 text-blue-600" />
-                              <div>
-                                <p className="font-semibold text-blue-600">
+                              <div className="flex items-center mb-2">
+                                <result.icon className="w-6 h-6 text-blue-600 mr-2" />
+                                <p className="text-2xl font-bold text-blue-600">
                                   {result.improvement}
                                 </p>
-                                <p className="text-sm text-gray-600">
-                                  {result.metric}
-                                </p>
                               </div>
+                              <p className="text-sm text-gray-700 font-medium">
+                                {result.metric}
+                              </p>
                             </div>
                           ))}
                         </div>
                       </div>
 
-                      <div className="mb-6">
+                      <div className="mb-8">
                         <div className="flex flex-wrap gap-2">
                           {study.tags.map((tag, idx) => (
                             <Badge
                               key={idx}
                               variant="outline"
-                              className="text-xs"
+                              className="text-xs border-gray-300 text-gray-600 hover:border-blue-600 hover:text-blue-600"
                             >
                               {tag}
                             </Badge>
@@ -308,8 +359,8 @@ export default function CaseStudies() {
                         </div>
                       </div>
 
-                      <Button className="bg-blue-600 hover:bg-blue-700">
-                        Read Full Case Study{" "}
+                      <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 w-fit">
+                        Read Full Case Study
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
                     </div>
@@ -322,32 +373,56 @@ export default function CaseStudies() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12">
-              Our Track Record
-            </h2>
+          <div className="max-w-6xl mx-auto text-center">
+            <div className="mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+                Proven Excellence
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Numbers that speak to our commitment to delivering exceptional
+                results
+              </p>
+            </div>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              <div>
-                <div className="text-4xl font-bold text-blue-600 mb-2">
+              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="flex items-center justify-center mb-4">
+                  <Star className="w-8 h-8 text-blue-600" />
+                </div>
+                <div className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-3">
                   100+
                 </div>
-                <p className="text-gray-600">Successful Projects</p>
+                <p className="text-gray-700 font-medium">Successful Projects</p>
               </div>
-              <div>
-                <div className="text-4xl font-bold text-blue-600 mb-2">95%</div>
-                <p className="text-gray-600">Client Satisfaction</p>
+              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="flex items-center justify-center mb-4">
+                  <TrendingUp className="w-8 h-8 text-blue-600" />
+                </div>
+                <div className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-3">
+                  95%
+                </div>
+                <p className="text-gray-700 font-medium">Client Satisfaction</p>
               </div>
-              <div>
-                <div className="text-4xl font-bold text-blue-600 mb-2">
+              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="flex items-center justify-center mb-4">
+                  <DollarSign className="w-8 h-8 text-blue-600" />
+                </div>
+                <div className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-3">
                   $50M+
                 </div>
-                <p className="text-gray-600">Client Savings Generated</p>
+                <p className="text-gray-700 font-medium">
+                  Client Savings Generated
+                </p>
               </div>
-              <div>
-                <div className="text-4xl font-bold text-blue-600 mb-2">25+</div>
-                <p className="text-gray-600">Industries Served</p>
+              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="flex items-center justify-center mb-4">
+                  <Users className="w-8 h-8 text-blue-600" />
+                </div>
+                <div className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-3">
+                  25+
+                </div>
+                <p className="text-gray-700 font-medium">Industries Served</p>
               </div>
             </div>
           </div>
@@ -355,23 +430,41 @@ export default function CaseStudies() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-24 bg-gradient-to-r from-blue-600 to-indigo-600">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Become Our Next Success Story?
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white leading-tight">
+              Ready to Write Your Success Story?
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Let's discuss how we can help you achieve similar results for your
-              business.
+            <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed">
+              Join the ranks of industry leaders who have transformed their
+              businesses with our AI solutions. Let's create your next
+              breakthrough together.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                Start Your Project
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button
+                size="lg"
+                className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold"
+              >
+                Start Your Transformation
               </Button>
-              <Button size="lg" variant="outline">
-                Schedule Consultation
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold"
+              >
+                Schedule Free Consultation
               </Button>
+            </div>
+            <div className="mt-12 flex items-center justify-center space-x-8 text-blue-100">
+              <div className="flex items-center">
+                <Clock className="w-5 h-5 mr-2" />
+                <span>Free 30-min consultation</span>
+              </div>
+              <div className="flex items-center">
+                <Award className="w-5 h-5 mr-2" />
+                <span>Proven track record</span>
+              </div>
             </div>
           </div>
         </div>

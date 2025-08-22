@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import {
   Carousel,
   CarouselContent,
@@ -6,12 +7,15 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const testimonials = [
   {
     name: "Sarah Johnson",
     role: "CTO, FinTech Solutions",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah",
+    image:
+      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&q=80",
     quote:
       "Tech Vexor's AI solutions increased our operational efficiency by 80%. Their expertise in fintech is unmatched.",
     metrics: "80% increase in efficiency",
@@ -19,7 +23,8 @@ const testimonials = [
   {
     name: "Michael Chen",
     role: "CEO, HealthTech Innovations",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=michael",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
     quote:
       "The AI-powered diagnostic system developed by Tech Vexor reduced our processing time by 60%.",
     metrics: "60% reduction in processing time",
@@ -27,7 +32,8 @@ const testimonials = [
   {
     name: "Emily Rodriguez",
     role: "Director of Operations, RetailTech",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=emily",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
     quote:
       "Their custom AI agent revolutionized our customer service, handling 75% of inquiries automatically.",
     metrics: "75% automation in customer service",
@@ -62,7 +68,13 @@ export function CaseStudies() {
                     <cite className="text-white font-semibold">
                       {testimonial.name}
                     </cite>
-                    <p className="text-slate-400">{testimonial.role}</p>
+                    <p className="text-slate-400 mb-6">{testimonial.role}</p>
+                    <Link to="/case-studies">
+                      <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white">
+                        View Case Study
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </Link>
                   </div>
                 </Card>
               </CarouselItem>
@@ -71,6 +83,18 @@ export function CaseStudies() {
           <CarouselPrevious className="text-white" />
           <CarouselNext className="text-white" />
         </Carousel>
+
+        <div className="text-center mt-12">
+          <Link to="/case-studies">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4"
+            >
+              View All Case Studies
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+          </Link>
+        </div>
       </div>
     </section>
   );

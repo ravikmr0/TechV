@@ -47,7 +47,12 @@ export function Header() {
         <div className="flex items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/">
+            <Link to="/" className="flex items-center space-x-2">
+              <img
+                src="/vexor-w.png"
+                alt="Tech Vexor Logo"
+                className="w-8 h-8"
+              />
               <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
                 Tech Vexor
               </span>
@@ -141,9 +146,16 @@ export function Header() {
           <div className="container mx-auto px-4 py-6">
             {/* Mobile Header */}
             <div className="flex items-center justify-between mb-8">
-              <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
-                Menu
-              </span>
+              <div className="flex items-center space-x-2">
+                <img
+                  src="/vexor-w.png"
+                  alt="Tech Vexor Logo"
+                  className="w-8 h-8"
+                />
+                <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
+                  Menu
+                </span>
+              </div>
               <button
                 className="text-white p-2"
                 onClick={() => setIsMenuOpen(false)}
