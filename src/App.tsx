@@ -65,6 +65,26 @@ function App() {
           <Route path="/industries/retail" element={<IndustryRetail />} />
           <Route path="/industries/manufacturing" element={<IndustryManufacturing />} />
           <Route path="/industries/education" element={<IndustryEducation />} />
+          <Route path="/industries/ecommerce" element={<IndustryEcommerce />} />
+          <Route path="/industries/restaurants-cafes" element={<IndustryRestaurantsCafes />} />
+          <Route path="/industries/real-estate" element={<IndustryRealEstate />} />
+          <Route path="/industries/travel-tourism" element={<IndustryTravelTourism />} />
+          <Route path="/industries/fitness-wellness" element={<IndustryFitnessWellness />} />
+          <Route path="/industries/non-profits" element={<IndustryNonProfits />} />
+          <Route path="/industries/entertainment-media" element={<IndustryEntertainmentMedia />} />
+          <Route path="/industries/consulting" element={<IndustryConsulting />} />
+          <Route path="/industries/marketing-advertising" element={<IndustryMarketingAdvertising />} />
+          <Route path="/industries/photography" element={<IndustryPhotography />} />
+          <Route path="/industries/logistics-transportation" element={<IndustryLogisticsTransportation />} />
+          <Route path="/industries/fashion-apparel" element={<IndustryFashionApparel />} />
+          <Route path="/industries/beauty-salons-spas" element={<IndustryBeautySalonsSpas />} />
+          <Route path="/industries/sports" element={<IndustrySports />} />
+          <Route path="/industries/publishing" element={<IndustryPublishing />} />
+          <Route path="/industries/local-services" element={<IndustryLocalServices />} />
+          <Route path="/industries/construction" element={<IndustryConstruction />} />
+          <Route path="/industries/wedding-planners" element={<IndustryWeddingPlanners />} />
+          <Route path="/industries/arts-crafts" element={<IndustryArtsCrafts />} />
+          <Route path="/industries/green-energy" element={<IndustryGreenEnergy />} />
 
           {/* Service detail routes */}
           <Route path="/services/it-consulting" element={<ServiceITConsulting />} />
