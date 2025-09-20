@@ -3,7 +3,7 @@ import { Footer } from "@/components/sections/footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { supabase } from "@/lib/supabase";
+import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
 import { Chrome, Github, Mail } from "lucide-react";
 import { useState } from "react";
 
@@ -15,7 +15,12 @@ export default function Login() {
     try {
       setLoading(true);
       setError(null);
-      const { error } = await supabase.auth.signInWithOAuth({
+      const client = getSupabase();
+      if (!client) {
+        setError("Social login is not configured.");
+        return;
+      }
+      const { error } = await client.auth.signInWithOAuth({
         provider: provider,
         options: { redirectTo: window.location.origin },
       });
@@ -27,7 +32,7 @@ export default function Login() {
     }
   }
 
-  const envMissing = !import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY;
+  const envMissing = !isSupabaseConfigured;
 
   return (
     <>
