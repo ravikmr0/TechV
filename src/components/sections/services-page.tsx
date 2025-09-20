@@ -1,76 +1,75 @@
 import { Card } from "@/components/ui/card";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { Link } from "react-router-dom";
 import {
-  Code2,
-  Smartphone,
-  Megaphone,
-  Palette,
   Cloud,
   Code,
   CheckCircle,
+  Brain,
+  Bot,
+  Shield,
+  Briefcase,
 } from "lucide-react";
 
 const services = [
   {
-    icon: Code2,
-    title: "Web Development & Design",
+    icon: Briefcase,
+    title: "IT Consulting",
+    href: "/services/it-consulting",
     items: [
-      "Custom Website Development",
-      "Responsive & User-Friendly UI/UX Design",
-      "E-commerce Website Solutions",
-      "CMS Development (WordPress, Shopify, etc.)",
-      "Web Application Development",
-    ],
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile App Development",
-    items: [
-      "iOS & Android App Development",
-      "Cross-Platform & Hybrid App Solutions",
-      "UI/UX for Mobile Applications",
-      "App Maintenance & Upgrades",
-    ],
-  },
-  {
-    icon: Megaphone,
-    title: "Digital Marketing & SEO",
-    items: [
-      "Search Engine Optimization (SEO)",
-      "Pay-Per-Click Advertising (PPC)",
-      "Social Media Marketing (SMM)",
-      "Content Marketing & Strategy",
-      "Email Marketing & Automation",
-    ],
-  },
-  {
-    icon: Palette,
-    title: "Branding & Creative Services",
-    items: [
-      "Logo & Brand Identity Design",
-      "Graphic Design & Illustrations",
-      "Video Production & Motion Graphics",
-      "UI/UX Design & Prototyping",
+      "Technology strategy & roadmaps",
+      "Solution architecture",
+      "Cloud readiness & TCO",
     ],
   },
   {
     icon: Cloud,
-    title: "Cloud & IT Solutions",
+    title: "Cloud Solutions",
+    href: "/services/cloud-solutions",
     items: [
-      "Cloud Hosting & Migration Services",
-      "IT Infrastructure & Security",
-      "DevOps & Automation",
-      "SaaS & Enterprise Solutions",
+      "Migration & modernization",
+      "IaC & automation",
+      "Cost optimization",
+    ],
+  },
+  {
+    icon: Brain,
+    title: "AI & Machine Learning",
+    href: "/services/ai-ml",
+    items: [
+      "Data pipelines & MLOps",
+      "Model development",
+      "Responsible AI",
+    ],
+  },
+  {
+    icon: Bot,
+    title: "AI Agents & Chatbots",
+    href: "/services/ai-agents-chatbots",
+    items: [
+      "Conversation design",
+      "RAG over private data",
+      "Tool use & automation",
+    ],
+  },
+  {
+    icon: Shield,
+    title: "Cybersecurity & Data Protection",
+    href: "/services/cybersecurity",
+    items: [
+      "Assessments & pen testing",
+      "Zero Trust & identity",
+      "Compliance guidance",
     ],
   },
   {
     icon: Code,
-    title: "Software Development",
+    title: "Custom Software & Web",
+    href: "/services/custom-software",
     items: [
-      "Custom Software Development",
-      "AI & Machine Learning Integration",
-      "Blockchain Solutions",
-      "ERP & CRM Software Development",
+      "Product UX/UI",
+      "Modern web & mobile",
+      "CI/CD & observability",
     ],
   },
 ];
@@ -108,24 +107,23 @@ export function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card
-                key={index}
-                className="p-6 hover:shadow-lg transition-shadow"
-              >
-                <service.icon className="w-12 h-12 text-indigo-500 mb-4" />
-                <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
-                <ul className="space-y-2">
-                  {service.items.map((item, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start space-x-2 text-slate-600"
-                    >
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
+              <Link key={index} to={service.href}>
+                <Card className="p-6 hover:shadow-lg transition-shadow h-full">
+                  <service.icon className="w-12 h-12 text-indigo-500 mb-4" />
+                  <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
+                  <ul className="space-y-2">
+                    {service.items.map((item, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-start space-x-2 text-slate-600"
+                      >
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
