@@ -21,6 +21,11 @@ const navItems = [
     icon: <Diamond className="w-4 h-4" />,
     href: "/ai-solutions",
   },
+  {
+    label: "Industries",
+    icon: <Diamond className="w-4 h-4" />,
+    href: "/industries",
+  },
   { label: "Contact", icon: <Diamond className="w-4 h-4" />, href: "/contact" },
 ];
 
