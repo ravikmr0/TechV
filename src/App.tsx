@@ -10,6 +10,18 @@ import Blog from "./pages/blog";
 import Careers from "./pages/careers";
 import Contact from "./pages/contact";
 import routes from "tempo-routes";
+import Industries from "./pages/industries";
+import ServiceITConsulting from "./pages/services-it-consulting";
+import ServiceCloudSolutions from "./pages/services-cloud-solutions";
+import ServiceAIAndML from "./pages/services-ai-ml";
+import ServiceAIAgentsChatbots from "./pages/services-ai-agents-chatbots";
+import ServiceCybersecurity from "./pages/services-cybersecurity";
+import ServiceCustomSoftware from "./pages/services-custom-software";
+import IndustryFinance from "./pages/industries-finance";
+import IndustryHealthcare from "./pages/industries-healthcare";
+import IndustryRetail from "./pages/industries-retail";
+import IndustryManufacturing from "./pages/industries-manufacturing";
+import IndustryEducation from "./pages/industries-education";
 
 function App() {
   return (
