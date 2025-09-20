@@ -95,20 +95,26 @@ export function Header() {
             {/* Action Buttons */}
             <div className="flex items-center space-x-4">
               <Button
+                asChild
                 variant="ghost"
                 size="sm"
                 className="items-center space-x-1 text-slate-300 hover:text-white"
               >
-                <Rocket className="w-4 h-4" />
-                <span>Explore Our Innovations</span>
+                <Link to="/innovations">
+                  <Rocket className="w-4 h-4" />
+                  <span>Explore Our Innovations</span>
+                </Link>
               </Button>
               <Button
+                asChild
                 variant="ghost"
                 size="sm"
                 className="items-center space-x-1 text-slate-300 hover:text-white"
               >
-                <LogIn className="w-4 h-4" />
-                <span>Login</span>
+                <Link to="/login">
+                  <LogIn className="w-4 h-4" />
+                  <span>Login</span>
+                </Link>
               </Button>
               <GradientButton
                 size="sm"
