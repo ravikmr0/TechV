@@ -31,19 +31,20 @@ const contactInfo = {
 };
 
 const services = [
-  "IT Consulting & Cloud Solutions",
-  "AI & Machine Learning Development",
-  "AI Agent & Chatbot Design",
-  "Cybersecurity & Data Protection",
-  "Custom Software & Web Development",
+  { name: "IT Consulting", href: "/services/it-consulting" },
+  { name: "Cloud Solutions", href: "/services/cloud-solutions" },
+  { name: "AI & Machine Learning Development", href: "/services/ai-ml" },
+  { name: "AI Agent & Chatbot Design", href: "/services/ai-agents-chatbots" },
+  { name: "Cybersecurity & Data Protection", href: "/services/cybersecurity" },
+  { name: "Custom Software & Web Development", href: "/services/custom-software" },
 ];
 
 const industries = [
-  "Finance – AI-powered risk assessment",
-  "Healthcare – Smart AI diagnostics",
-  "Retail – AI-driven customer insights",
-  "Manufacturing – Intelligent automation",
-  "Education – AI-based learning solutions",
+  { name: "Finance – AI-powered risk assessment", href: "/industries/finance" },
+  { name: "Healthcare – Smart AI diagnostics", href: "/industries/healthcare" },
+  { name: "Retail – AI-driven customer insights", href: "/industries/retail" },
+  { name: "Manufacturing – Intelligent automation", href: "/industries/manufacturing" },
+  { name: "Education – AI-based learning solutions", href: "/industries/education" },
 ];
 
 const socialLinks = [
@@ -98,16 +99,24 @@ export function Footer() {
             <h3 className="text-xl font-bold mb-6">Our Services</h3>
             <ul className="space-y-3">
               {services.map((service) => (
-                <li key={service} className="text-slate-300">
-                  {service}
+                <li key={service.name}>
+                  <Link
+                    to={service.href}
+                    className="text-slate-300 hover:text-white transition-colors"
+                  >
+                    {service.name}
+                  </Link>
                 </li>
               ))}
             </ul>
             <Button
+              asChild
               variant="link"
               className="text-indigo-400 hover:text-indigo-300 pl-0 mt-4"
             >
-              Explore All Services <ArrowRight className="w-4 h-4 ml-2" />
+              <Link to="/services">
+                Explore All Services <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
             </Button>
           </div>
 
@@ -116,16 +125,24 @@ export function Footer() {
             <h3 className="text-xl font-bold mb-6">Industry Solutions</h3>
             <ul className="space-y-3">
               {industries.map((industry) => (
-                <li key={industry} className="text-slate-300">
-                  {industry}
+                <li key={industry.name}>
+                  <Link
+                    to={industry.href}
+                    className="text-slate-300 hover:text-white transition-colors"
+                  >
+                    {industry.name}
+                  </Link>
                 </li>
               ))}
             </ul>
             <Button
+              asChild
               variant="link"
               className="text-indigo-400 hover:text-indigo-300 pl-0 mt-4"
             >
-              See Industry Use Cases <ArrowRight className="w-4 h-4 ml-2" />
+              <Link to="/industries">
+                See Industry Use Cases <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
             </Button>
           </div>
 
