@@ -22,6 +22,26 @@ import IndustryHealthcare from "./pages/industries-healthcare";
 import IndustryRetail from "./pages/industries-retail";
 import IndustryManufacturing from "./pages/industries-manufacturing";
 import IndustryEducation from "./pages/industries-education";
+import IndustryEcommerce from "./pages/industries-ecommerce";
+import IndustryRestaurantsCafes from "./pages/industries-restaurants-cafes";
+import IndustryRealEstate from "./pages/industries-real-estate";
+import IndustryTravelTourism from "./pages/industries-travel-tourism";
+import IndustryFitnessWellness from "./pages/industries-fitness-wellness";
+import IndustryNonProfits from "./pages/industries-non-profits";
+import IndustryEntertainmentMedia from "./pages/industries-entertainment-media";
+import IndustryConsulting from "./pages/industries-consulting";
+import IndustryMarketingAdvertising from "./pages/industries-marketing-advertising";
+import IndustryPhotography from "./pages/industries-photography";
+import IndustryLogisticsTransportation from "./pages/industries-logistics-transportation";
+import IndustryFashionApparel from "./pages/industries-fashion-apparel";
+import IndustryBeautySalonsSpas from "./pages/industries-beauty-salons-spas";
+import IndustrySports from "./pages/industries-sports";
+import IndustryPublishing from "./pages/industries-publishing";
+import IndustryLocalServices from "./pages/industries-local-services";
+import IndustryConstruction from "./pages/industries-construction";
+import IndustryWeddingPlanners from "./pages/industries-wedding-planners";
+import IndustryArtsCrafts from "./pages/industries-arts-crafts";
+import IndustryGreenEnergy from "./pages/industries-green-energy";
 
 function App() {
   return (
