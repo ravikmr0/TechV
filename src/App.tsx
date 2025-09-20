@@ -46,6 +46,8 @@ import IndustryConstruction from "./pages/industries-construction";
 import IndustryWeddingPlanners from "./pages/industries-wedding-planners";
 import IndustryArtsCrafts from "./pages/industries-arts-crafts";
 import IndustryGreenEnergy from "./pages/industries-green-energy";
+import Innovations from "./pages/innovations";
+import Login from "./pages/login";
 
 function App() {
   return (
