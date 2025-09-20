@@ -37,6 +37,22 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+
+          {/* Industry routes */}
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/industries/finance" element={<IndustryFinance />} />
+          <Route path="/industries/healthcare" element={<IndustryHealthcare />} />
+          <Route path="/industries/retail" element={<IndustryRetail />} />
+          <Route path="/industries/manufacturing" element={<IndustryManufacturing />} />
+          <Route path="/industries/education" element={<IndustryEducation />} />
+
+          {/* Service detail routes */}
+          <Route path="/services/it-consulting" element={<ServiceITConsulting />} />
+          <Route path="/services/cloud-solutions" element={<ServiceCloudSolutions />} />
+          <Route path="/services/ai-ml" element={<ServiceAIAndML />} />
+          <Route path="/services/ai-agents-chatbots" element={<ServiceAIAgentsChatbots />} />
+          <Route path="/services/cybersecurity" element={<ServiceCybersecurity />} />
+          <Route path="/services/custom-software" element={<ServiceCustomSoftware />} />
         </Routes>
         {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
       </>
