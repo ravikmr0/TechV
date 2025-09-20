@@ -11,6 +11,10 @@ import Careers from "./pages/careers";
 import Contact from "./pages/contact";
 import routes from "tempo-routes";
 import Industries from "./pages/industries";
+import PrivacyPolicy from "./pages/privacy-policy";
+import Terms from "./pages/terms";
+import DataSecurity from "./pages/data-security";
+import AIEthics from "./pages/ai-ethics";
 import ServiceITConsulting from "./pages/services-it-consulting";
 import ServiceCloudSolutions from "./pages/services-cloud-solutions";
 import ServiceAIAndML from "./pages/services-ai-ml";
@@ -57,6 +61,10 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/data-security" element={<DataSecurity />} />
+          <Route path="/ai-ethics" element={<AIEthics />} />
 
           {/* Industry routes */}
           <Route path="/industries" element={<Industries />} />

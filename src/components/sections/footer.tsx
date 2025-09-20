@@ -218,18 +218,18 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-slate-400">
             <div>© 2025 Tech Vexor. All Rights Reserved.</div>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-white">
+              <Link to="/privacy-policy" className="hover:text-white">
                 Privacy Policy
-              </a>
-              <a href="#" className="hover:text-white">
+              </Link>
+              <Link to="/terms" className="hover:text-white">
                 Terms & Conditions
-              </a>
-              <a href="#" className="hover:text-white">
+              </Link>
+              <Link to="/data-security" className="hover:text-white">
                 Data Security
-              </a>
-              <a href="#" className="hover:text-white">
+              </Link>
+              <Link to="/ai-ethics" className="hover:text-white">
                 AI Ethics
-              </a>
+              </Link>
             </div>
           </div>
         </div>
