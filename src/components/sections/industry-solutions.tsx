@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { GradientButton } from "@/components/ui/gradient-button";
-import { Building2, HeartPulse, ShoppingBag, Factory, GraduationCap, CheckCircle } from "lucide-react";
+import { Building2, HeartPulse, ShoppingBag, Factory, GraduationCap, CheckCircle, Briefcase, Megaphone, Camera, Truck, Shirt, Leaf, Globe, Clapperboard, Users, BookOpen, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const industries = [
