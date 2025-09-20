@@ -192,19 +192,17 @@ export function Header() {
 
             {/* Mobile Action Buttons */}
             <div className="space-y-3">
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-slate-300 hover:text-white text-lg"
-              >
-                <Rocket className="w-5 h-5 mr-2" />
-                Explore Our Innovations
+              <Button asChild variant="ghost" className="w-full justify-start text-slate-300 hover:text-white text-lg">
+                <Link to="/innovations" onClick={() => setIsMenuOpen(false)}>
+                  <Rocket className="w-5 h-5 mr-2" />
+                  Explore Our Innovations
+                </Link>
               </Button>
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-slate-300 hover:text-white text-lg"
-              >
-                <LogIn className="w-5 h-5 mr-2" />
-                Login
+              <Button asChild variant="ghost" className="w-full justify-start text-slate-300 hover:text-white text-lg">
+                <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                  <LogIn className="w-5 h-5 mr-2" />
+                  Login
+                </Link>
               </Button>
               <GradientButton
                 className="w-full text-lg"
