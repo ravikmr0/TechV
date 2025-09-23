@@ -1,77 +1,12 @@
 import { Card } from "@/components/ui/card";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { Link } from "react-router-dom";
-import {
-  Cloud,
-  Code,
-  CheckCircle,
-  Brain,
-  Bot,
-  Shield,
-  Briefcase,
-} from "lucide-react";
+import { CheckCircle } from "lucide-react";
+import { serviceGroups } from "@/data/services-catalog";
 
-const services = [
-  {
-    icon: Briefcase,
-    title: "IT Consulting",
-    href: "/services/it-consulting",
-    items: [
-      "Technology strategy & roadmaps",
-      "Solution architecture",
-      "Cloud readiness & TCO",
-    ],
-  },
-  {
-    icon: Cloud,
-    title: "Cloud Solutions",
-    href: "/services/cloud-solutions",
-    items: [
-      "Migration & modernization",
-      "IaC & automation",
-      "Cost optimization",
-    ],
-  },
-  {
-    icon: Brain,
-    title: "AI & Machine Learning",
-    href: "/services/ai-ml",
-    items: [
-      "Data pipelines & MLOps",
-      "Model development",
-      "Responsible AI",
-    ],
-  },
-  {
-    icon: Bot,
-    title: "AI Agents & Chatbots",
-    href: "/services/ai-agents-chatbots",
-    items: [
-      "Conversation design",
-      "RAG over private data",
-      "Tool use & automation",
-    ],
-  },
-  {
-    icon: Shield,
-    title: "Cybersecurity & Data Protection",
-    href: "/services/cybersecurity",
-    items: [
-      "Assessments & pen testing",
-      "Zero Trust & identity",
-      "Compliance guidance",
-    ],
-  },
-  {
-    icon: Code,
-    title: "Custom Software & Web",
-    href: "/services/custom-software",
-    items: [
-      "Product UX/UI",
-      "Modern web & mobile",
-      "CI/CD & observability",
-    ],
-  },
+const heroCTAs = [
+  { label: "Talk to an Expert", href: "/contact" },
+  { label: "See Case Studies", href: "/case-studies" },
 ];
 
 const benefits = [
@@ -102,30 +37,32 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Catalog */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Link key={index} to={service.href}>
-                <Card className="p-6 hover:shadow-lg transition-shadow h-full">
-                  <service.icon className="w-12 h-12 text-indigo-500 mb-4" />
-                  <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
-                  <ul className="space-y-2">
-                    {service.items.map((item, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start space-x-2 text-slate-600"
-                      >
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
-              </Link>
-            ))}
-          </div>
+        <div className="container mx-auto px-4 space-y-16">
+          {serviceGroups.map((group, gi) => (
+            <div key={gi}>
+              <h2 className="text-2xl font-bold mb-6">{group.name}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {group.items.map((svc, si) => (
+                  <Link key={si} to={`/services/${svc.slug}`}>
+                    <Card className="p-6 hover:shadow-lg transition-shadow h-full">
+                      <h3 className="text-lg font-semibold mb-2">{svc.title}</h3>
+                      <p className="text-slate-600 mb-4">{svc.description}</p>
+                      <ul className="space-y-2">
+                        {svc.features.slice(0, 3).map((f, fi) => (
+                          <li key={fi} className="flex items-start space-x-2 text-slate-600">
+                            <CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
