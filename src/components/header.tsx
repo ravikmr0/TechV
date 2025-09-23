@@ -3,36 +3,29 @@ import { Button } from "@/components/ui/button";
 import { Diamond, LogIn, Rocket, Search, Menu, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import { serviceGroups } from "@/data/services-catalog";
+import { industryGroups } from "@/data/industry-catalog";
 
 const navItems = [
-  {
-    label: "Services",
-    icon: <Diamond className="w-4 h-4" />,
-    href: "/services",
-  },
-  {
-    label: "Projects",
-    icon: <Diamond className="w-4 h-4" />,
-    href: "/projects",
-  },
-  {
-    label: "AI Solutions",
-    icon: <Diamond className="w-4 h-4" />,
-    href: "/ai-solutions",
-  },
-  {
-    label: "Industries",
-    icon: <Diamond className="w-4 h-4" />,
-    href: "/industries",
-  },
-  { label: "Contact", icon: <Diamond className="w-4 h-4" />, href: "/contact" },
+  { label: "Projects", href: "/projects" },
+  { label: "AI Solutions", href: "/ai-solutions" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const navigate = useNavigate();
+  const location = useLocation();
+  const isActive = (href: string) => location.pathname === href;
 
   // Handle scroll effect
   useEffect(() => {
@@ -79,18 +72,73 @@ export function Header() {
             </div>
 
             {/* Navigation Items */}
-            <nav className="flex items-center space-x-6">
-              {navItems.map((item, index) => (
-                <Link
-                  key={index}
-                  to={item.href}
-                  className="flex items-center space-x-1 text-sm text-slate-300 hover:text-white transition-colors"
-                >
-                  {item.icon}
-                  <span>{item.label}</span>
-                </Link>
-              ))}
-            </nav>
+            <NavigationMenu>
+              <NavigationMenuList>
+                {/* Services dropdown */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={navigationMenuTriggerStyle()}>Services</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-4 md:w-[700px] lg:w-[900px] grid-cols-2 lg:grid-cols-3">
+                      {serviceGroups.slice(0, 3).map((group, gi) => (
+                        <div key={gi}>
+                          <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">{group.name}</h4>
+                          <ul className="space-y-1">
+                            {group.items.slice(0, 4).map((svc, si) => (
+                              <li key={si}>
+                                <Link to={`/services/${svc.slug}`} className="text-sm text-slate-700 hover:text-indigo-600">
+                                  {svc.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                      <div className="self-end">
+                        <Link to="/services" className="text-sm text-indigo-600 hover:underline">Explore all services →</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                {/* Industries dropdown */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={navigationMenuTriggerStyle()}>Industries</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-4 md:w-[700px] lg:w-[900px] grid-cols-2 lg:grid-cols-3">
+                      {industryGroups.slice(0, 3).map((group, gi) => (
+                        <div key={gi}>
+                          <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">{group.name}</h4>
+                          <ul className="space-y-1">
+                            {group.items.slice(0, 4).map((ind, ii) => (
+                              <li key={ii}>
+                                <Link to={`/industries/${ind.slug}`} className="text-sm text-slate-700 hover:text-indigo-600">
+                                  {ind.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                      <div className="self-end">
+                        <Link to="/industries" className="text-sm text-indigo-600 hover:underline">See industry use cases →</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                {/* Simple items */}
+                {navItems.map((item, i) => (
+                  <NavigationMenuItem key={i}>
+                    <Link
+                      to={item.href}
+                      className={`px-3 py-2 text-sm rounded-md transition-colors ${isActive(item.href) ? "text-white bg-slate-800" : "text-slate-300 hover:text-white"}`}
+                    >
+                      {item.label}
+                    </Link>
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
 
             {/* Action Buttons */}
             <div className="flex items-center space-x-4">
@@ -177,17 +225,37 @@ export function Header() {
 
             {/* Mobile Navigation */}
             <nav className="space-y-4 mb-6">
-              {navItems.map((item, index) => (
-                <Link
-                  key={index}
-                  to={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center space-x-2 text-slate-300 hover:text-white transition-colors py-2 text-lg"
-                >
-                  {item.icon}
-                  <span>{item.label}</span>
-                </Link>
-              ))}
+              <div>
+                <h4 className="text-slate-400 uppercase text-xs mb-2">Services</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {serviceGroups.flatMap((g) => g.items).slice(0, 8).map((svc, i) => (
+                    <Link key={i} to={`/services/${svc.slug}`} onClick={() => setIsMenuOpen(false)} className="text-slate-300 hover:text-white text-base">
+                      {svc.title}
+                    </Link>
+                  ))}
+                </div>
+                <Link to="/services" onClick={() => setIsMenuOpen(false)} className="text-indigo-400 hover:text-indigo-300 text-sm mt-2 inline-block">Explore all services →</Link>
+              </div>
+
+              <div className="pt-4">
+                <h4 className="text-slate-400 uppercase text-xs mb-2">Industries</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {industryGroups.flatMap((g) => g.items).slice(0, 8).map((ind, i) => (
+                    <Link key={i} to={`/industries/${ind.slug}`} onClick={() => setIsMenuOpen(false)} className="text-slate-300 hover:text-white text-base">
+                      {ind.title}
+                    </Link>
+                  ))}
+                </div>
+                <Link to="/industries" onClick={() => setIsMenuOpen(false)} className="text-indigo-400 hover:text-indigo-300 text-sm mt-2 inline-block">See more industries →</Link>
+              </div>
+
+              <div className="pt-4 grid grid-cols-2 gap-2">
+                {navItems.map((item, index) => (
+                  <Link key={index} to={item.href} onClick={() => setIsMenuOpen(false)} className="text-slate-300 hover:text-white text-base">
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </nav>
 
             {/* Mobile Action Buttons */}
