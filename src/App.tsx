@@ -98,6 +98,7 @@ function App() {
           <Route path="/industries/wedding-planners" element={<IndustryWeddingPlanners />} />
           <Route path="/industries/arts-crafts" element={<IndustryArtsCrafts />} />
           <Route path="/industries/green-energy" element={<IndustryGreenEnergy />} />
+          <Route path="/industries/:slug" element={<IndustryDynamic />} />
 
           {/* Service detail routes */}
           <Route path="/services/it-consulting" element={<ServiceITConsulting />} />
