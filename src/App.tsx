@@ -21,6 +21,7 @@ import ServiceAIAndML from "./pages/services-ai-ml";
 import ServiceAIAgentsChatbots from "./pages/services-ai-agents-chatbots";
 import ServiceCybersecurity from "./pages/services-cybersecurity";
 import ServiceCustomSoftware from "./pages/services-custom-software";
+import ServiceDynamic from "./pages/service-dynamic";
 import IndustryFinance from "./pages/industries-finance";
 import IndustryHealthcare from "./pages/industries-healthcare";
 import IndustryRetail from "./pages/industries-retail";
