@@ -51,24 +51,28 @@ export function IndustrySolutionsPage() {
         </div>
       </section>
 
-      {/* Grid */}
+      {/* Groups */}
       <section id="use-cases" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {industries.map((i, idx) => (
-              <Link key={idx} to={i.href}>
-                <Card className="p-6 hover:shadow-lg transition-shadow h-full">
-                  <i.icon className="w-10 h-10 text-indigo-500 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">{i.title}</h3>
-                  <p className="text-slate-600 mb-4">{i.description}</p>
-                  <div className="flex items-center text-sm text-slate-500">
-                    <CheckCircle className="w-4 h-4 mr-2 text-green-500" />
-                    Explore use cases
-                  </div>
-                </Card>
-              </Link>
-            ))}
-          </div>
+        <div className="container mx-auto px-4 space-y-16">
+          {industryGroups.map((group, gi) => (
+            <div key={gi}>
+              <h2 className="text-2xl font-bold mb-6">{group.name}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {group.items.map((i, idx) => (
+                  <Link key={idx} to={`/industries/${i.slug}`}>
+                    <Card className="p-6 hover:shadow-lg transition-shadow h-full">
+                      <h3 className="text-lg font-semibold mb-2">{i.title}</h3>
+                      <p className="text-slate-600 mb-4">{i.description}</p>
+                      <div className="flex items-center text-sm text-slate-500">
+                        <CheckCircle className="w-4 h-4 mr-2 text-green-500" />
+                        Explore use cases
+                      </div>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>
