@@ -107,6 +107,7 @@ function App() {
           <Route path="/services/ai-agents-chatbots" element={<ServiceAIAgentsChatbots />} />
           <Route path="/services/cybersecurity" element={<ServiceCybersecurity />} />
           <Route path="/services/custom-software" element={<ServiceCustomSoftware />} />
+          <Route path="/services/:slug" element={<ServiceDynamic />} />
         </Routes>
         {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
       </>
