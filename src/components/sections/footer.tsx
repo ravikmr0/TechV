@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { GradientButton } from "@/components/ui/gradient-button";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -188,14 +187,18 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Sticky CTA */}
-        <div className="fixed bottom-4 right-4 z-50 flex space-x-4">
-          <a href="tel:+917895849990">
-            <GradientButton>🚀 Get a Free Consultation</GradientButton>
+        {/* WhatsApp Chat */}
+        <div className="fixed bottom-4 right-4 z-50">
+          <a
+            href="https://wa.me/917898849990"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+          >
+            <Button className="h-12 w-12 rounded-full bg-green-500 hover:bg-green-600 shadow-lg">
+              <MessageCircle className="w-5 h-5 text-white" />
+            </Button>
           </a>
-          <Button className="bg-indigo-500 hover:bg-indigo-600">
-            <MessageCircle className="w-5 h-5" />
-          </Button>
         </div>
 
         {/* Trust Badges */}
