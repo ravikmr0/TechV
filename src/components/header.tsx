@@ -1,6 +1,4 @@
-import { GradientButton } from "@/components/ui/gradient-button";
-import { Button } from "@/components/ui/button";
-import { Diamond, LogIn, Search, Menu, X } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -17,8 +15,10 @@ import { industryGroups } from "@/data/industry-catalog";
 
 const navItems = [
   { label: "Projects", href: "/projects" },
-  { label: "AI Solutions", href: "/ai-solutions" },
-  { label: "Contact", href: "/contact" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact Us", href: "/contact" },
+  { label: "Login", href: "/login" },
 ];
 
 export function Header() {
@@ -140,39 +140,7 @@ export function Header() {
               </NavigationMenuList>
             </NavigationMenu>
 
-            {/* Action Buttons */}
-            <div className="flex items-center space-x-4">
-              <Button
-                asChild
-                variant="ghost"
-                size="sm"
-                className="items-center space-x-1 text-slate-300 hover:text-white"
-              >
-                <Link to="/pricing">
-                  <Diamond className="w-4 h-4" />
-                  <span>Pricing</span>
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="ghost"
-                size="sm"
-                className="items-center space-x-1 text-slate-300 hover:text-white"
-              >
-                <Link to="/login">
-                  <LogIn className="w-4 h-4" />
-                  <span>Login</span>
-                </Link>
-              </Button>
-              <GradientButton
-                size="sm"
-                onClick={() =>
-                  window.open("https://wa.me/917895849990", "_blank")
-                }
-              >
-                Get Started
-              </GradientButton>
-            </div>
+            {/* Action Buttons removed as per sequence */}
           </div>
 
           {/* Mobile Search and Menu */}
@@ -258,29 +226,7 @@ export function Header() {
               </div>
             </nav>
 
-            {/* Mobile Action Buttons */}
-            <div className="space-y-3">
-              <Button asChild variant="ghost" className="w-full justify-start text-slate-300 hover:text-white text-lg">
-                <Link to="/pricing" onClick={() => setIsMenuOpen(false)}>
-                  <Diamond className="w-5 h-5 mr-2" />
-                  Pricing
-                </Link>
-              </Button>
-              <Button asChild variant="ghost" className="w-full justify-start text-slate-300 hover:text-white text-lg">
-                <Link to="/login" onClick={() => setIsMenuOpen(false)}>
-                  <LogIn className="w-5 h-5 mr-2" />
-                  Login
-                </Link>
-              </Button>
-              <GradientButton
-                className="w-full text-lg"
-                onClick={() =>
-                  window.open("https://wa.me/917895849990", "_blank")
-                }
-              >
-                Get Started
-              </GradientButton>
-            </div>
+            {/* Mobile action buttons removed; links provided above */}
           </div>
         </div>
       )}
