@@ -164,14 +164,14 @@ export function Header() {
                   <span>Login</span>
                 </Link>
               </Button>
-              // <GradientButton
-              //   size="sm"
-              //   onClick={() =>
-              //     window.open("https://wa.me/917895849990", "_blank")
-              //   }
-              // >
-              //   Get Started
-              // </GradientButton>
+              <GradientButton
+                size="sm"
+                onClick={() =>
+                  window.open("https://wa.me/917895849990", "_blank")
+                }
+              >
+                Get Started
+              </GradientButton>
             </div>
           </div>
 
@@ -272,14 +272,14 @@ export function Header() {
                   Login
                 </Link>
               </Button>
-              // <GradientButton
-              //   className="w-full text-lg"
-              //   onClick={() =>
-              //     window.open("https://wa.me/917895849990", "_blank")
-              //   }
-              // >
-              //   Get Started
-              // </GradientButton>
+              <GradientButton
+                className="w-full text-lg"
+                onClick={() =>
+                  window.open("https://wa.me/917895849990", "_blank")
+                }
+              >
+                Get Started
+              </GradientButton>
             </div>
           </div>
         </div>
