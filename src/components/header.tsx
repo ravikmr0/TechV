@@ -1,6 +1,6 @@
 import { GradientButton } from "@/components/ui/gradient-button";
 import { Button } from "@/components/ui/button";
-import { Diamond, LogIn, Rocket, Search, Menu, X } from "lucide-react";
+import { Diamond, LogIn, Search, Menu, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -148,9 +148,9 @@ export function Header() {
                 size="sm"
                 className="items-center space-x-1 text-slate-300 hover:text-white"
               >
-                <Link to="/innovations">
-                  <Rocket className="w-4 h-4" />
-                  <span>Explore Our Innovations</span>
+                <Link to="/pricing">
+                  <Diamond className="w-4 h-4" />
+                  <span>Pricing</span>
                 </Link>
               </Button>
               <Button
@@ -261,9 +261,9 @@ export function Header() {
             {/* Mobile Action Buttons */}
             <div className="space-y-3">
               <Button asChild variant="ghost" className="w-full justify-start text-slate-300 hover:text-white text-lg">
-                <Link to="/innovations" onClick={() => setIsMenuOpen(false)}>
-                  <Rocket className="w-5 h-5 mr-2" />
-                  Explore Our Innovations
+                <Link to="/pricing" onClick={() => setIsMenuOpen(false)}>
+                  <Diamond className="w-5 h-5 mr-2" />
+                  Pricing
                 </Link>
               </Button>
               <Button asChild variant="ghost" className="w-full justify-start text-slate-300 hover:text-white text-lg">

@@ -50,6 +50,7 @@ import IndustryGreenEnergy from "./pages/industries-green-energy";
 import Innovations from "./pages/innovations";
 import Login from "./pages/login";
 import IndustryDynamic from "./pages/industry-dynamic";
+import Pricing from "./pages/pricing";
 
 function App() {
   return (
@@ -67,6 +68,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/innovations" element={<Innovations />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/data-security" element={<DataSecurity />} />
