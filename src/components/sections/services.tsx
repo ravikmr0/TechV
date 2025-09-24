@@ -1,6 +1,5 @@
 import { Card } from "@/components/ui/card";
 import { GradientButton } from "@/components/ui/gradient-button";
-import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import {
   Code2,
