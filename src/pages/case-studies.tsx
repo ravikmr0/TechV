@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import {
@@ -213,6 +216,22 @@ const caseStudies = [
 ];
 
 export default function CaseStudies() {
+  const industries = useMemo(() => Array.from(new Set(caseStudies.map(cs => cs.industry))), []);
+  const allTags = useMemo(() => Array.from(new Set(caseStudies.flatMap(cs => cs.tags))), []);
+  const [query, setQuery] = useState("");
+  const [industry, setIndustry] = useState<string>("All");
+  const [tag, setTag] = useState<string>("All");
+
+  const filtered = useMemo(() => {
+    return caseStudies.filter((cs) => {
+      const q = query.trim().toLowerCase();
+      const matchesQuery = q === "" || cs.title.toLowerCase().includes(q) || cs.client.toLowerCase().includes(q) || cs.challenge.toLowerCase().includes(q) || cs.solution.toLowerCase().includes(q) || cs.tags.some(t => t.toLowerCase().includes(q));
+      const matchesIndustry = industry === "All" || cs.industry === industry;
+      const matchesTag = tag === "All" || cs.tags.includes(tag);
+      return matchesQuery && matchesIndustry && matchesTag;
+    });
+  }, [query, industry, tag]);
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -239,26 +258,54 @@ export default function CaseStudies() {
               our cutting-edge AI solutions and strategic partnerships.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 text-lg"
-              >
-                Explore Success Stories
+              <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 text-lg">
+                <a href="#stories">Explore Success Stories</a>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-gray-300 hover:border-blue-600 px-8 py-4 text-lg"
-              >
-                Start Your Journey
+              <Button asChild size="lg" variant="outline" className="border-2 border-gray-300 hover:border-blue-600 px-8 py-4 text-lg">
+                <a href="/contact">Start Your Journey</a>
               </Button>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Filters */}
+      <section className="py-10 bg-white border-b">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="w-full md:max-w-md">
+              <label className="block text-sm font-medium text-slate-600 mb-1">Search case studies</label>
+              <Input type="search" placeholder="Search by keyword, client, or tag" value={query} onChange={(e) => setQuery(e.target.value)} />
+            </div>
+            <div className="flex gap-3 w-full md:w-auto">
+              <div>
+                <label className="block text-sm font-medium text-slate-600 mb-1">Industry</label>
+                <select value={industry} onChange={(e) => setIndustry(e.target.value)} className="h-9 px-3 rounded-md border border-input bg-background text-sm">
+                  <option>All</option>
+                  {industries.map((ind) => (
+                    <option key={ind}>{ind}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-600 mb-1">Tag</label>
+                <select value={tag} onChange={(e) => setTag(e.target.value)} className="h-9 px-3 rounded-md border border-input bg-background text-sm">
+                  <option>All</option>
+                  {allTags.map((t) => (
+                    <option key={t}>{t}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="self-end">
+                <Button variant="ghost" onClick={() => { setQuery(""); setIndustry("All"); setTag("All"); }}>Clear</Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Case Studies Grid */}
-      <section className="py-24 bg-white">
+      <section id="stories" className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -270,7 +317,7 @@ export default function CaseStudies() {
               </p>
             </div>
             <div className="space-y-20">
-              {caseStudies.map((study, index) => (
+              {filtered.map((study, index) => (
                 <Card
                   key={study.id}
                   className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white"
@@ -359,9 +406,8 @@ export default function CaseStudies() {
                         </div>
                       </div>
 
-                      <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 w-fit">
-                        Read Full Case Study
-                        <ArrowRight className="w-4 h-4 ml-2" />
+                      <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 w-fit">
+                        <a href={`/contact?subject=${encodeURIComponent("Case Study: " + study.title)}`}>Read Full Case Study <span className="inline-flex"><ArrowRight className="w-4 h-4 ml-2" /></span></a>
                       </Button>
                     </div>
                   </div>
@@ -442,18 +488,11 @@ export default function CaseStudies() {
               breakthrough together.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button
-                size="lg"
-                className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold"
-              >
-                Start Your Transformation
+              <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
+                <a href="/contact">Start Your Transformation</a>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold"
-              >
-                Schedule Free Consultation
+              <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold">
+                <a href="tel:+917895849990">Schedule Free Consultation</a>
               </Button>
             </div>
             <div className="mt-12 flex items-center justify-center space-x-8 text-blue-100">
