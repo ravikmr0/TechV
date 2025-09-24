@@ -31,14 +31,19 @@ export function ServicesPage() {
             Our expert team ensures that your digital presence stands out in a
             competitive market.
           </p>
-          <div className="text-center">
-            <GradientButton size="lg">Explore Our Services</GradientButton>
+          <div className="flex items-center justify-center gap-3">
+            <GradientButton asChild size="lg">
+              <Link to="#complete-services-list">Explore Our Services</Link>
+            </GradientButton>
+            <Link to="#complete-services-list" className="inline-flex items-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground">
+              Complete Services List
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Services Catalog */}
-      <section className="py-20">
+      <section className="py-20" id="complete-services-list">
         <div className="container mx-auto px-4 space-y-16">
           {serviceGroups.map((group, gi) => (
             <div key={gi}>
