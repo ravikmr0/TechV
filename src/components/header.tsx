@@ -193,31 +193,9 @@ export function Header() {
 
             {/* Mobile Navigation */}
             <nav className="space-y-4 mb-6">
-              <div>
-                <h4 className="text-slate-400 uppercase text-xs mb-2">Services</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {serviceGroups.flatMap((g) => g.items).slice(0, 8).map((svc, i) => (
-                    <Link key={i} to={`/services/${svc.slug}`} onClick={() => setIsMenuOpen(false)} className="text-slate-300 hover:text-white text-base">
-                      {svc.title}
-                    </Link>
-                  ))}
-                </div>
-                <Link to="/services" onClick={() => setIsMenuOpen(false)} className="text-indigo-400 hover:text-indigo-300 text-sm mt-2 inline-block">Explore all services →</Link>
-              </div>
-
-              <div className="pt-4">
-                <h4 className="text-slate-400 uppercase text-xs mb-2">Industries</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {industryGroups.flatMap((g) => g.items).slice(0, 8).map((ind, i) => (
-                    <Link key={i} to={`/industries/${ind.slug}`} onClick={() => setIsMenuOpen(false)} className="text-slate-300 hover:text-white text-base">
-                      {ind.title}
-                    </Link>
-                  ))}
-                </div>
-                <Link to="/industries" onClick={() => setIsMenuOpen(false)} className="text-indigo-400 hover:text-indigo-300 text-sm mt-2 inline-block">See more industries →</Link>
-              </div>
-
-              <div className="pt-4 grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 gap-3">
+                <Link to="/services" onClick={() => setIsMenuOpen(false)} className="text-slate-300 hover:text-white text-base">Services</Link>
+                <Link to="/industries" onClick={() => setIsMenuOpen(false)} className="text-slate-300 hover:text-white text-base">Industries</Link>
                 {navItems.map((item, index) => (
                   <Link key={index} to={item.href} onClick={() => setIsMenuOpen(false)} className="text-slate-300 hover:text-white text-base">
                     {item.label}
