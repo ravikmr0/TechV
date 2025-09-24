@@ -1,4 +1,3 @@
-import { Hero } from "./sections/hero";
 import { Services } from "./sections/services";
 import { WhyChooseUs } from "./sections/why-choose-us";
 import { CaseStudies } from "./sections/case-studies";
