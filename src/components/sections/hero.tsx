@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { Link } from "react-router-dom";
-import { Phone } from "lucide-react";
+import { Phone, Sparkles, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Hero() {
@@ -65,6 +65,40 @@ export function Hero() {
               transition={{ delay: 0.25, duration: 0.6 }}
               style={{ transformOrigin: "left" }}
             />
+            {/* Reference-inspired effect elements */}
+            <motion.div
+              className="mt-4 flex items-center gap-3"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
+              <span className="inline-flex items-center gap-1 text-emerald-400 text-sm">
+                <Sparkles className="w-4 h-4" /> Agency in India
+              </span>
+              <span className="inline-flex items-center text-xs text-white/90 bg-white/10 border border-white/15 rounded-full pl-3 pr-1 py-1">
+                Success Rate
+                <span className="ml-2 rounded-full bg-white/20 px-2 py-0.5 text-white">96%</span>
+              </span>
+            </motion.div>
+            {/* Explore circle */}
+            <motion.div
+              className="mt-6"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              <Link to="/services" aria-label="Explore Now" className="relative inline-block">
+                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 blur-2xl opacity-30 group-hover:opacity-50 transition" />
+                <motion.span
+                  className="relative z-10 inline-flex items-center justify-center w-20 h-20 rounded-full bg-white text-slate-900 shadow-xl group"
+                  animate={{ boxShadow: ["0 0 0 0 rgba(255,255,255,0.3)", "0 0 0 12px rgba(255,255,255,0)"] }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut" }}
+                >
+                  <span className="text-xs font-medium mr-1">Explore Now</span>
+                  <ChevronRight className="w-4 h-4" />
+                </motion.span>
+              </Link>
+            </motion.div>
             <motion.div
               className="mt-7 flex flex-col sm:flex-row gap-3"
               initial={{ opacity: 0, y: 10 }}
