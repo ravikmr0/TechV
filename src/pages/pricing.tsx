@@ -9,6 +9,12 @@ import { Check } from "lucide-react";
 type Plan = { name: string; price: string; tagline: string; features: string[]; popular?: boolean };
 
 function PlanCard({ plan }: { plan: Plan }) {
+  const waText = encodeURIComponent(
+    `Hi Tech Vexor, I'm interested in ${plan.name} (${plan.price}). ${plan.tagline}. Features I'm considering: ${plan.features.join(", ")}.`
+  );
+  const waLink = `https://wa.me/917895849990?text=${waText}`;
+  const payLink = `/contact?subject=${encodeURIComponent("Pay Now: " + plan.name)}&message=${encodeURIComponent("I want to proceed with payment for " + plan.name + " (" + plan.price + ").")}`;
+
   return (
     <Card className={`flex flex-col h-full ${plan.popular ? "border-indigo-500" : ""}`}>
       <CardHeader>
@@ -30,10 +36,10 @@ function PlanCard({ plan }: { plan: Plan }) {
       <CardFooter className="mt-auto">
         <div className="flex gap-2">
           <GradientButton asChild>
-            <a href="https://wa.me/917895849990" target="_blank" rel="noreferrer">Talk to Sales</a>
+            <a href={waLink} target="_blank" rel="noreferrer">Talk to Sales</a>
           </GradientButton>
           <Button asChild variant="outline">
-            <a href="/contact">Request Quote</a>
+            <a href={payLink}>Pay Now</a>
           </Button>
         </div>
       </CardFooter>
@@ -79,7 +85,7 @@ const dmServicePlans: Plan[] = [
 const brandPlans: Plan[] = [
   { name: "Logo & Brand Identity", price: "₹18,000–₹40,000", tagline: "Logo + basics", features: ["3–4 concepts", "Color/typography", "Assets & exports"] },
   { name: "Brand Identity System", price: "₹60,000–₹1,50,000", tagline: "Complete system", features: ["Logo suite", "Stationery & social kit", "Guidelines PDF"] , popular: true},
-  { name: "UI/UX Design (Web/Apps)", price: "₹4,000–₹12,000/screen", tagline: "Interfaces & systems", features: ["Research & wires", "Components", "Prototypes"] },
+  { name: "UI/UX Design (Web/Apps)", price: "₹4,000��₹12,000/screen", tagline: "Interfaces & systems", features: ["Research & wires", "Components", "Prototypes"] },
   { name: "Graphic Design (Print/Digital)", price: "₹10,000–₹60,000", tagline: "Campaign & social kits", features: ["Creatives", "Resize & variants", "Delivery packages"] },
   { name: "Infographics & Illustrations", price: "₹12,000–₹60,000", tagline: "Data stories", features: ["Concept & layout", "Custom art", "Final exports"] },
   { name: "Product & Packaging Design", price: "₹60,000–₹2,50,000", tagline: "Shelf‑ready packs", features: ["Concepts", "Dielines", "Print files"] },
