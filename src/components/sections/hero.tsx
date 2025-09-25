@@ -5,6 +5,7 @@ import { Phone } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Hero() {
+  const tags = ["Website", "Social Media", "Digital Marketing", "Performance Marketing"] as const;
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800">
@@ -33,25 +34,29 @@ export function Hero() {
               Transform Your Business
             </motion.h1>
             <motion.div
-              className="mt-4 flex flex-wrap items-center gap-3"
+              className="mt-4 relative overflow-hidden"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.6 }}
             >
-              <motion.span
-                className="text-lg md:text-xl px-3 py-1 rounded-full text-white bg-gradient-to-r from-indigo-500 to-purple-500"
-                animate={{ y: [0, -4, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              <motion.div
+                className="flex items-center gap-3 whitespace-nowrap"
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
               >
-                Digital Marketing
-              </motion.span>
-              <motion.span
-                className="text-lg md:text-xl px-3 py-1 rounded-full text-white bg-gradient-to-r from-purple-500 to-pink-500"
-                animate={{ y: [0, 4, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-              >
-                Leads Generation
-              </motion.span>
+                {[0,1].map((row) => (
+                  <div key={row} className="flex items-center gap-3 pr-6">
+                    {tags.map((t, i) => (
+                      <span
+                        key={`${row}-${i}`}
+                        className="text-base md:text-lg px-3 py-1 rounded-full text-white bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-purple-500 hover:to-pink-500 transition-colors"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </motion.div>
             </motion.div>
             <motion.div
               className="mt-3 h-1.5 w-32 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full"
