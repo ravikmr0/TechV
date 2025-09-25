@@ -1,24 +1,10 @@
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { GradientButton } from "@/components/ui/gradient-button";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Phone } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Hero() {
-  const navigate = useNavigate();
-
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const name = String(data.get("name") || "");
-    const email = String(data.get("email") || "");
-    const website = String(data.get("website") || "");
-    const budget = String(data.get("budget") || "");
-    const qs = new URLSearchParams({ name, email, website, budget });
-    navigate(`/contact?${qs.toString()}`);
-  }
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800">
@@ -92,38 +78,66 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: Proposal form */}
-          <div className="lg:ml-auto">
-            <Card className="backdrop-blur bg-white/90">
-              <CardHeader>
-                <CardTitle className="text-2xl">Get a Proposal</CardTitle>
-                <p className="text-sm text-slate-600">Tell us about your goals. We’ll share a tailored plan and quote.</p>
-              </CardHeader>
-              <form onSubmit={onSubmit}>
-                <CardContent className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Name</label>
-                    <Input name="name" placeholder="Your name" required />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Work Email</label>
-                    <Input type="email" name="email" placeholder="you@company.com" required />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Website / App</label>
-                    <Input name="website" placeholder="example.com" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Monthly Budget</label>
-                    <Input name="budget" placeholder="e.g., ₹50,000–₹1,00,000" />
-                  </div>
-                </CardContent>
-                <CardFooter className="flex items-center justify-between gap-3">
-                  <GradientButton type="submit" className="w-full">Get My Proposal</GradientButton>
-                </CardFooter>
-              </form>
-            </Card>
-            <p className="mt-3 text-xs text-slate-400">By submitting, you agree to our terms and privacy policy.</p>
+          {/* Right: Visual composition */}
+          <div className="lg:ml-auto relative h-[420px]">
+            {/* Soft glow panel */}
+            <motion.div
+              className="absolute inset-0 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm"
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+            />
+            {/* Orbit rings */}
+            <motion.div
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full border border-indigo-400/30"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.div
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full border border-purple-400/20"
+              animate={{ rotate: -360 }}
+              transition={{ duration: 36, repeat: Infinity, ease: "linear" }}
+            />
+            {/* Metric cards */}
+            <motion.div
+              className="absolute left-6 top-8 rounded-2xl bg-white/90 text-slate-900 shadow-xl px-5 py-4"
+              initial={{ y: 12, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
+              <div className="text-xs text-slate-500">Organic Traffic</div>
+              <div className="text-2xl font-bold">+142%</div>
+              <div className="text-xs text-emerald-600">Last 90 days</div>
+            </motion.div>
+            <motion.div
+              className="absolute right-8 top-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 text-white shadow-2xl px-5 py-4"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="text-xs/5 opacity-80">Leads</div>
+              <div className="text-2xl font-bold">+78%</div>
+              <div className="text-xs/5 opacity-80">MoM</div>
+            </motion.div>
+            <motion.div
+              className="absolute left-10 bottom-10 rounded-xl bg-white/90 text-slate-900 shadow-lg px-4 py-3"
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="text-xs text-slate-500">ROAS</div>
+              <div className="text-xl font-semibold">4.2×</div>
+            </motion.div>
+            <motion.div
+              className="absolute right-6 bottom-8 rounded-xl bg-white/90 text-slate-900 shadow-lg px-4 py-3"
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="text-xs text-slate-500">CTR</div>
+              <div className="text-xl font-semibold">3.8%</div>
+            </motion.div>
+            {/* Dotted grid overlay */}
+            <div className="absolute inset-0 rounded-3xl [mask-image:linear-gradient(to_bottom,black,transparent)] pointer-events-none">
+              <div className="w-full h-full opacity-20" style={{ backgroundImage: "radial-gradient(currentColor 1px, transparent 1px)", backgroundSize: "16px 16px", color: "#94a3b8" }} />
+            </div>
           </div>
         </div>
       </div>
