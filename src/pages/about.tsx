@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Users, Target, Award, Globe } from "lucide-react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/sections/footer";
 
 const teamMembers = [
   {
@@ -56,6 +58,7 @@ const achievements = [
 export default function About() {
   return (
     <div className="min-h-screen bg-white">
+      <Header />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-indigo-50 to-white py-20">
         <div className="container mx-auto px-4">
@@ -229,6 +232,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
