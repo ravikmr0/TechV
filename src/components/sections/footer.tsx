@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { GradientButton } from "@/components/ui/gradient-button";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -31,19 +30,20 @@ const contactInfo = {
 };
 
 const services = [
-  "IT Consulting & Cloud Solutions",
-  "AI & Machine Learning Development",
-  "AI Agent & Chatbot Design",
-  "Cybersecurity & Data Protection",
-  "Custom Software & Web Development",
+  { name: "IT Consulting", href: "/services/it-consulting" },
+  { name: "Cloud Solutions", href: "/services/cloud-solutions" },
+  { name: "AI & Machine Learning Development", href: "/services/ai-ml" },
+  { name: "AI Agent & Chatbot Design", href: "/services/ai-agents-chatbots" },
+  { name: "Cybersecurity & Data Protection", href: "/services/cybersecurity" },
+  { name: "Custom Software & Web Development", href: "/services/custom-software" },
 ];
 
 const industries = [
-  "Finance – AI-powered risk assessment",
-  "Healthcare – Smart AI diagnostics",
-  "Retail – AI-driven customer insights",
-  "Manufacturing – Intelligent automation",
-  "Education – AI-based learning solutions",
+  { name: "Finance – AI-powered risk assessment", href: "/industries/finance" },
+  { name: "Healthcare – Smart AI diagnostics", href: "/industries/healthcare" },
+  { name: "Retail – AI-driven customer insights", href: "/industries/retail" },
+  { name: "Manufacturing – Intelligent automation", href: "/industries/manufacturing" },
+  { name: "Education – AI-based learning solutions", href: "/industries/education" },
 ];
 
 const socialLinks = [
@@ -98,16 +98,24 @@ export function Footer() {
             <h3 className="text-xl font-bold mb-6">Our Services</h3>
             <ul className="space-y-3">
               {services.map((service) => (
-                <li key={service} className="text-slate-300">
-                  {service}
+                <li key={service.name}>
+                  <Link
+                    to={service.href}
+                    className="text-slate-300 hover:text-white transition-colors"
+                  >
+                    {service.name}
+                  </Link>
                 </li>
               ))}
             </ul>
             <Button
+              asChild
               variant="link"
               className="text-indigo-400 hover:text-indigo-300 pl-0 mt-4"
             >
-              Explore All Services <ArrowRight className="w-4 h-4 ml-2" />
+              <Link to="/services">
+                Explore All Services <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
             </Button>
           </div>
 
@@ -116,16 +124,24 @@ export function Footer() {
             <h3 className="text-xl font-bold mb-6">Industry Solutions</h3>
             <ul className="space-y-3">
               {industries.map((industry) => (
-                <li key={industry} className="text-slate-300">
-                  {industry}
+                <li key={industry.name}>
+                  <Link
+                    to={industry.href}
+                    className="text-slate-300 hover:text-white transition-colors"
+                  >
+                    {industry.name}
+                  </Link>
                 </li>
               ))}
             </ul>
             <Button
+              asChild
               variant="link"
               className="text-indigo-400 hover:text-indigo-300 pl-0 mt-4"
             >
-              See Industry Use Cases <ArrowRight className="w-4 h-4 ml-2" />
+              <Link to="/industries">
+                See Industry Use Cases <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
             </Button>
           </div>
 
@@ -171,14 +187,18 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Sticky CTA */}
-        <div className="fixed bottom-4 right-4 z-50 flex space-x-4">
-          <a href="tel:+917895849990">
-            <GradientButton>🚀 Get a Free Consultation</GradientButton>
+        {/* WhatsApp Chat */}
+        <div className="fixed bottom-4 right-4 z-50">
+          <a
+            href="https://wa.me/917898849990"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+          >
+            <Button className="h-12 w-12 rounded-full bg-green-500 hover:bg-green-600 shadow-lg">
+              <MessageCircle className="w-5 h-5 text-white" />
+            </Button>
           </a>
-          <Button className="bg-indigo-500 hover:bg-indigo-600">
-            <MessageCircle className="w-5 h-5" />
-          </Button>
         </div>
 
         {/* Trust Badges */}
@@ -201,18 +221,18 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-slate-400">
             <div>© 2025 Tech Vexor. All Rights Reserved.</div>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-white">
+              <Link to="/privacy-policy" className="hover:text-white">
                 Privacy Policy
-              </a>
-              <a href="#" className="hover:text-white">
+              </Link>
+              <Link to="/terms" className="hover:text-white">
                 Terms & Conditions
-              </a>
-              <a href="#" className="hover:text-white">
+              </Link>
+              <Link to="/data-security" className="hover:text-white">
                 Data Security
-              </a>
-              <a href="#" className="hover:text-white">
+              </Link>
+              <Link to="/ai-ethics" className="hover:text-white">
                 AI Ethics
-              </a>
+              </Link>
             </div>
           </div>
         </div>

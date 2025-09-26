@@ -1,33 +1,31 @@
-import { GradientButton } from "@/components/ui/gradient-button";
-import { Button } from "@/components/ui/button";
-import { Diamond, LogIn, Rocket, Search, Menu, X } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import { serviceGroups } from "@/data/services-catalog";
+import { industryGroups } from "@/data/industry-catalog";
 
 const navItems = [
-  {
-    label: "Services",
-    icon: <Diamond className="w-4 h-4" />,
-    href: "/services",
-  },
-  {
-    label: "Projects",
-    icon: <Diamond className="w-4 h-4" />,
-    href: "/projects",
-  },
-  {
-    label: "AI Solutions",
-    icon: <Diamond className="w-4 h-4" />,
-    href: "/ai-solutions",
-  },
-  { label: "Contact", icon: <Diamond className="w-4 h-4" />, href: "/contact" },
+  { label: "Projects", href: "/projects" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact Us", href: "/contact" },
+  { label: "Login", href: "/login" },
 ];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const navigate = useNavigate();
+  const location = useLocation();
+  const isActive = (href: string) => location.pathname === href;
 
   // Handle scroll effect
   useEffect(() => {
@@ -74,46 +72,75 @@ export function Header() {
             </div>
 
             {/* Navigation Items */}
-            <nav className="flex items-center space-x-6">
-              {navItems.map((item, index) => (
-                <Link
-                  key={index}
-                  to={item.href}
-                  className="flex items-center space-x-1 text-sm text-slate-300 hover:text-white transition-colors"
-                >
-                  {item.icon}
-                  <span>{item.label}</span>
-                </Link>
-              ))}
-            </nav>
+            <NavigationMenu>
+              <NavigationMenuList>
+                {/* Services dropdown */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={navigationMenuTriggerStyle()}>Services</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-4 md:w-[700px] lg:w-[900px] grid-cols-2 lg:grid-cols-3">
+                      {serviceGroups.slice(0, 3).map((group, gi) => (
+                        <div key={gi}>
+                          <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">{group.name}</h4>
+                          <ul className="space-y-1">
+                            {group.items.slice(0, 4).map((svc, si) => (
+                              <li key={si}>
+                                <Link to={`/services/${svc.slug}`} className="text-sm text-slate-700 hover:text-indigo-600">
+                                  {svc.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                      <div className="self-end">
+                        <Link to="/services" className="text-sm text-indigo-600 hover:underline">Explore all services →</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
 
-            {/* Action Buttons */}
-            <div className="flex items-center space-x-4">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="items-center space-x-1 text-slate-300 hover:text-white"
-              >
-                <Rocket className="w-4 h-4" />
-                <span>Explore Our Innovations</span>
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="items-center space-x-1 text-slate-300 hover:text-white"
-              >
-                <LogIn className="w-4 h-4" />
-                <span>Login</span>
-              </Button>
-              <GradientButton
-                size="sm"
-                onClick={() =>
-                  window.open("https://wa.me/917895849990", "_blank")
-                }
-              >
-                Get Started
-              </GradientButton>
-            </div>
+                {/* Industries dropdown */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={navigationMenuTriggerStyle()}>Industries</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-4 md:w-[700px] lg:w-[900px] grid-cols-2 lg:grid-cols-3">
+                      {industryGroups.slice(0, 3).map((group, gi) => (
+                        <div key={gi}>
+                          <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">{group.name}</h4>
+                          <ul className="space-y-1">
+                            {group.items.slice(0, 4).map((ind, ii) => (
+                              <li key={ii}>
+                                <Link to={`/industries/${ind.slug}`} className="text-sm text-slate-700 hover:text-indigo-600">
+                                  {ind.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                      <div className="self-end">
+                        <Link to="/industries" className="text-sm text-indigo-600 hover:underline">See industry use cases →</Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                {/* Simple items */}
+                {navItems.map((item, i) => (
+                  <NavigationMenuItem key={i}>
+                    <Link
+                      to={item.href}
+                      className={`px-3 py-2 text-sm rounded-md transition-colors ${isActive(item.href) ? "text-white bg-slate-800" : "text-slate-300 hover:text-white"}`}
+                    >
+                      {item.label}
+                    </Link>
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
+
+            {/* Action Buttons removed as per sequence */}
           </div>
 
           {/* Mobile Search and Menu */}
@@ -166,44 +193,18 @@ export function Header() {
 
             {/* Mobile Navigation */}
             <nav className="space-y-4 mb-6">
-              {navItems.map((item, index) => (
-                <Link
-                  key={index}
-                  to={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center space-x-2 text-slate-300 hover:text-white transition-colors py-2 text-lg"
-                >
-                  {item.icon}
-                  <span>{item.label}</span>
-                </Link>
-              ))}
+              <div className="grid grid-cols-1 gap-3">
+                <Link to="/services" onClick={() => setIsMenuOpen(false)} className="text-slate-300 hover:text-white text-base">Services</Link>
+                <Link to="/industries" onClick={() => setIsMenuOpen(false)} className="text-slate-300 hover:text-white text-base">Industries</Link>
+                {navItems.map((item, index) => (
+                  <Link key={index} to={item.href} onClick={() => setIsMenuOpen(false)} className="text-slate-300 hover:text-white text-base">
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </nav>
 
-            {/* Mobile Action Buttons */}
-            <div className="space-y-3">
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-slate-300 hover:text-white text-lg"
-              >
-                <Rocket className="w-5 h-5 mr-2" />
-                Explore Our Innovations
-              </Button>
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-slate-300 hover:text-white text-lg"
-              >
-                <LogIn className="w-5 h-5 mr-2" />
-                Login
-              </Button>
-              <GradientButton
-                className="w-full text-lg"
-                onClick={() =>
-                  window.open("https://wa.me/917895849990", "_blank")
-                }
-              >
-                Get Started
-              </GradientButton>
-            </div>
+            {/* Mobile action buttons removed; links provided above */}
           </div>
         </div>
       )}

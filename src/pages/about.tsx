@@ -1,32 +1,42 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Users, Target, Award, Globe } from "lucide-react";
+import { Users, Target, Award, Globe, Linkedin, Mail } from "lucide-react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/sections/footer";
 
 const teamMembers = [
   {
     name: "John Smith",
     role: "CEO & Founder",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=john",
+    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=300&q=80&auto=format&fit=crop",
     experience: "15+ years in AI & Tech",
+    linkedin: "https://www.linkedin.com/in/john-smith/",
+    email: "john@techvexor.com",
   },
   {
     name: "Sarah Johnson",
     role: "CTO",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah",
+    image: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=300&q=80&auto=format&fit=crop",
     experience: "12+ years in Software Development",
+    linkedin: "https://www.linkedin.com/in/sarah-johnson/",
+    email: "sarah@techvexor.com",
   },
   {
     name: "Mike Chen",
     role: "AI Solutions Director",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=mike",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&q=80&auto=format&fit=crop",
     experience: "10+ years in Machine Learning",
+    linkedin: "https://www.linkedin.com/in/mike-chen/",
+    email: "mike@techvexor.com",
   },
   {
     name: "Emily Davis",
     role: "Head of Operations",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=emily",
+    image: "https://images.unsplash.com/photo-1541534401786-8ef75ce6c9e7?w=300&q=80&auto=format&fit=crop",
     experience: "8+ years in Project Management",
+    linkedin: "https://www.linkedin.com/in/emily-davis/",
+    email: "emily@techvexor.com",
   },
 ];
 
@@ -56,6 +66,7 @@ const achievements = [
 export default function About() {
   return (
     <div className="min-h-screen bg-white">
+      <Header />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-indigo-50 to-white py-20">
         <div className="container mx-auto px-4">
@@ -151,18 +162,34 @@ export default function About() {
               {teamMembers.map((member, index) => (
                 <Card
                   key={index}
-                  className="p-6 text-center hover:shadow-lg transition-shadow"
+                  className="p-6 text-center hover:shadow-xl transition-shadow rounded-2xl border border-gray-100"
                 >
                   <img
                     src={member.image}
-                    alt={member.name}
-                    className="w-24 h-24 rounded-full mx-auto mb-4"
+                    alt={`${member.name} portrait`}
+                    className="w-24 h-24 rounded-full mx-auto mb-4 object-cover ring-4 ring-indigo-100"
                   />
                   <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                  <p className="text-indigo-600 font-medium mb-2">
-                    {member.role}
-                  </p>
-                  <p className="text-gray-600 text-sm">{member.experience}</p>
+                  <p className="text-indigo-600 font-medium">{member.role}</p>
+                  <p className="text-gray-600 text-sm mb-4">{member.experience}</p>
+                  <div className="flex items-center justify-center gap-3">
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${member.name} on LinkedIn`}
+                      className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-colors"
+                    >
+                      <Linkedin className="w-4 h-4" />
+                    </a>
+                    <a
+                      href={`mailto:${member.email}`}
+                      aria-label={`Email ${member.name}`}
+                      className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors"
+                    >
+                      <Mail className="w-4 h-4" />
+                    </a>
+                  </div>
                 </Card>
               ))}
             </div>
@@ -229,6 +256,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

@@ -14,7 +14,7 @@ const features = [
   },
   {
     icon: Zap,
-    title: "Custom AI Agent Design",
+    title: "Custom AI Agent  Design",
     description:
       "We craft AI agents that enhance business productivity and automation.",
   },

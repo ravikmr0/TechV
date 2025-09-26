@@ -1,78 +1,12 @@
 import { Card } from "@/components/ui/card";
 import { GradientButton } from "@/components/ui/gradient-button";
-import {
-  Code2,
-  Smartphone,
-  Megaphone,
-  Palette,
-  Cloud,
-  Code,
-  CheckCircle,
-} from "lucide-react";
+import { Link } from "react-router-dom";
+import { CheckCircle } from "lucide-react";
+import { serviceGroups } from "@/data/services-catalog";
 
-const services = [
-  {
-    icon: Code2,
-    title: "Web Development & Design",
-    items: [
-      "Custom Website Development",
-      "Responsive & User-Friendly UI/UX Design",
-      "E-commerce Website Solutions",
-      "CMS Development (WordPress, Shopify, etc.)",
-      "Web Application Development",
-    ],
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile App Development",
-    items: [
-      "iOS & Android App Development",
-      "Cross-Platform & Hybrid App Solutions",
-      "UI/UX for Mobile Applications",
-      "App Maintenance & Upgrades",
-    ],
-  },
-  {
-    icon: Megaphone,
-    title: "Digital Marketing & SEO",
-    items: [
-      "Search Engine Optimization (SEO)",
-      "Pay-Per-Click Advertising (PPC)",
-      "Social Media Marketing (SMM)",
-      "Content Marketing & Strategy",
-      "Email Marketing & Automation",
-    ],
-  },
-  {
-    icon: Palette,
-    title: "Branding & Creative Services",
-    items: [
-      "Logo & Brand Identity Design",
-      "Graphic Design & Illustrations",
-      "Video Production & Motion Graphics",
-      "UI/UX Design & Prototyping",
-    ],
-  },
-  {
-    icon: Cloud,
-    title: "Cloud & IT Solutions",
-    items: [
-      "Cloud Hosting & Migration Services",
-      "IT Infrastructure & Security",
-      "DevOps & Automation",
-      "SaaS & Enterprise Solutions",
-    ],
-  },
-  {
-    icon: Code,
-    title: "Software Development",
-    items: [
-      "Custom Software Development",
-      "AI & Machine Learning Integration",
-      "Blockchain Solutions",
-      "ERP & CRM Software Development",
-    ],
-  },
+const heroCTAs = [
+  { label: "Talk to an Expert", href: "/contact" },
+  { label: "See Case Studies", href: "/case-studies" },
 ];
 
 const benefits = [
@@ -97,37 +31,43 @@ export function ServicesPage() {
             Our expert team ensures that your digital presence stands out in a
             competitive market.
           </p>
-          <div className="text-center">
-            <GradientButton size="lg">Explore Our Services</GradientButton>
+          <div className="flex items-center justify-center gap-3">
+            <GradientButton asChild size="lg">
+              <Link to="#complete-services-list">Explore Our Services</Link>
+            </GradientButton>
+            <Link to="#complete-services-list" className="inline-flex items-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground">
+              Complete Services List
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card
-                key={index}
-                className="p-6 hover:shadow-lg transition-shadow"
-              >
-                <service.icon className="w-12 h-12 text-indigo-500 mb-4" />
-                <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
-                <ul className="space-y-2">
-                  {service.items.map((item, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start space-x-2 text-slate-600"
-                    >
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            ))}
-          </div>
+      {/* Services Catalog */}
+      <section className="py-20" id="complete-services-list">
+        <div className="container mx-auto px-4 space-y-16">
+          {serviceGroups.map((group, gi) => (
+            <div key={gi}>
+              <h2 className="text-2xl font-bold mb-6">{group.name}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {group.items.map((svc, si) => (
+                  <Link key={si} to={`/services/${svc.slug}`}>
+                    <Card className="p-6 hover:shadow-lg transition-shadow h-full">
+                      <h3 className="text-lg font-semibold mb-2">{svc.title}</h3>
+                      <p className="text-slate-600 mb-4">{svc.description}</p>
+                      <ul className="space-y-2">
+                        {svc.features.slice(0, 3).map((f, fi) => (
+                          <li key={fi} className="flex items-start space-x-2 text-slate-600">
+                            <CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -13,27 +14,27 @@ import { Link } from "react-router-dom";
 const testimonials = [
   {
     name: "Sarah Johnson",
-    role: "CTO, FinTech Solutions",
-    image:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&q=80",
+    title: "CTO",
+    company: "FinTech Solutions",
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&q=80",
     quote:
       "Tech Vexor's AI solutions increased our operational efficiency by 80%. Their expertise in fintech is unmatched.",
     metrics: "80% increase in efficiency",
   },
   {
     name: "Michael Chen",
-    role: "CEO, HealthTech Innovations",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
+    title: "CEO",
+    company: "HealthTech Innovations",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
     quote:
       "The AI-powered diagnostic system developed by Tech Vexor reduced our processing time by 60%.",
     metrics: "60% reduction in processing time",
   },
   {
     name: "Emily Rodriguez",
-    role: "Director of Operations, RetailTech",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
+    title: "Director of Operations",
+    company: "RetailTech",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
     quote:
       "Their custom AI agent revolutionized our customer service, handling 75% of inquiries automatically.",
     metrics: "75% automation in customer service",
@@ -41,6 +42,21 @@ const testimonials = [
 ];
 
 export function CaseStudies() {
+  const [api, setApi] = useState<any>(null);
+  const timer = useRef<number | null>(null);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (!api) return;
+    const tick = () => {
+      if (!paused) api.scrollNext();
+    };
+    timer.current = window.setInterval(tick, 2500);
+    return () => {
+      if (timer.current) window.clearInterval(timer.current);
+    };
+  }, [api, paused]);
+
   return (
     <section className="py-20 bg-slate-900">
       <div className="container mx-auto px-4">
@@ -48,10 +64,11 @@ export function CaseStudies() {
           Success Stories
         </h2>
 
-        <Carousel className="max-w-5xl mx-auto">
-          <CarouselContent>
-            {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index}>
+        <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+          <Carousel className="max-w-5xl mx-auto" setApi={setApi} opts={{ align: "start", loop: true }}>
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index}>
                 <Card className="p-8 bg-white/5 backdrop-blur-sm border-0">
                   <div className="flex flex-col items-center text-center">
                     <img
@@ -68,7 +85,7 @@ export function CaseStudies() {
                     <cite className="text-white font-semibold">
                       {testimonial.name}
                     </cite>
-                    <p className="text-slate-400 mb-6">{testimonial.role}</p>
+                    <p className="text-slate-400 mb-6">{testimonial.title}, {testimonial.company}</p>
                     <Link to="/case-studies">
                       <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white">
                         View Case Study
@@ -82,7 +99,8 @@ export function CaseStudies() {
           </CarouselContent>
           <CarouselPrevious className="text-white" />
           <CarouselNext className="text-white" />
-        </Carousel>
+          </Carousel>
+        </div>
 
         <div className="text-center mt-12">
           <Link to="/case-studies">
