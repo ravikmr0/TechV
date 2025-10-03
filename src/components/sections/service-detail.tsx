@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { usePageTitle } from "@/hooks/use-page-title";
 import { CheckCircle, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -22,6 +23,8 @@ export function ServiceDetailSection({
   ctaLabel = "Talk to an expert",
   ctaHref = "/contact",
 }: ServiceDetailProps) {
+  usePageTitle(title);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
