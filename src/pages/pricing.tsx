@@ -4,6 +4,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Badge } from "@/components/ui/badge";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { Button } from "@/components/ui/button";
+import { usePageTitle } from "@/hooks/use-page-title";
 import { Check } from "lucide-react";
 
 type Plan = { name: string; price: string; tagline: string; features: string[]; popular?: boolean };
@@ -193,6 +194,8 @@ function Section({ title, subtitle, items, bg }: { title: string; subtitle?: str
 }
 
 export default function Pricing() {
+  usePageTitle("Pricing");
+
   return (
     <>
       <Header />
