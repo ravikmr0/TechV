@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 const contactInfo = {
   phone: "+91 7895849990",
@@ -110,6 +111,8 @@ const faqs = [
 ];
 
 export default function Contact() {
+  usePageTitle("Contact Us");
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
