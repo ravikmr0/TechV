@@ -3,11 +3,14 @@ import { Footer } from "@/components/sections/footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { usePageTitle } from "@/hooks/use-page-title";
 import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
 import { Chrome, Github, Mail } from "lucide-react";
 import { useState } from "react";
 
 export default function Login() {
+  usePageTitle("Login");
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
