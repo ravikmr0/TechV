@@ -1,12 +1,15 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { IndustryDetailSection } from "@/components/sections/industry-detail";
+import { usePageTitle } from "@/hooks/use-page-title";
 import { useParams, Link } from "react-router-dom";
 import { industryIndex } from "@/data/industry-catalog";
 
 export default function IndustryDynamic() {
   const { slug } = useParams();
   const entry = slug ? industryIndex[slug] : undefined;
+  const pageTitle = entry ? `${entry.title} Industry Solutions` : "Industry Not Found";
+  usePageTitle(pageTitle);
 
   if (!entry) {
     return (

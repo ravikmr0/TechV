@@ -3,6 +3,7 @@ import { Footer } from "@/components/sections/footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { usePageTitle } from "@/hooks/use-page-title";
 import { ArrowRight, ExternalLink, Github, Globe } from "lucide-react";
 
 const projects = [
@@ -75,6 +76,8 @@ const projects = [
 ];
 
 export default function Projects() {
+  usePageTitle("Projects");
+
   return (
     <div className="min-h-screen bg-white">
       <Header />

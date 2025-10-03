@@ -1,12 +1,15 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { ServiceDetailSection } from "@/components/sections/service-detail";
+import { usePageTitle } from "@/hooks/use-page-title";
 import { useParams, Link } from "react-router-dom";
 import { serviceIndex } from "@/data/services-catalog";
 
 export default function ServiceDynamic() {
   const { slug } = useParams();
   const entry = slug ? serviceIndex[slug] : undefined;
+  const pageTitle = entry ? entry.title : "Service Not Found";
+  usePageTitle(pageTitle);
 
   if (!entry) {
     return (

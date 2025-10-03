@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Users, Target, Award, Globe, Linkedin, Mail } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 const teamMembers = [
   {
@@ -56,6 +57,8 @@ const achievements = [
 ];
 
 export default function About() {
+  usePageTitle("About Us");
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
