@@ -76,7 +76,7 @@ const projects = [
 ];
 
 export default function Projects() {
-  usePageTitle("Projects");
+  usePageTitle("Client Success Projects & Case Studies");
 
   return (
     <div className="min-h-screen bg-white">
