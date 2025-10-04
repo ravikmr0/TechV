@@ -4,7 +4,7 @@ import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
 
 export default function Services() {
-  usePageTitle("Services");
+  usePageTitle("Digital Marketing & AI Services");
 
   return (
     <>
