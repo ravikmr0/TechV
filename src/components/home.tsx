@@ -8,8 +8,11 @@ import { Hero } from "./sections/hero";
 import { AIDemo } from "./sections/ai-demo";
 import { UseCases } from "./sections/use-cases";
 import { TrustBadges } from "./sections/trust-badges";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 function Home() {
+  usePageTitle("AI Transformation & Digital Growth Agency");
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
