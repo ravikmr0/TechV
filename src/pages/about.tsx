@@ -57,7 +57,7 @@ const achievements = [
 ];
 
 export default function About() {
-  usePageTitle("About Us");
+  usePageTitle("About Tech Vexor Digital Innovation Team");
 
   return (
     <div className="min-h-screen bg-white">
