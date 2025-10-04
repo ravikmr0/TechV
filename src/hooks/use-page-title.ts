@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const DEFAULT_SUFFIX = "Tech Vexor";
+const DEFAULT_SUFFIX = "Tech Vexor – AI Transformation & Performance Marketing Experts";
 const DEFAULT_SEPARATOR = " | ";
 
 export type UsePageTitleOptions = {
