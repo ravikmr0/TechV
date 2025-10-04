@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
+import { usePageTitle } from "@/hooks/use-page-title";
 import {
   Brain,
   Bot,
@@ -143,6 +144,8 @@ const benefits = [
 ];
 
 export default function AISolutions() {
+  usePageTitle("AI Solutions for Growth & Automation");
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
