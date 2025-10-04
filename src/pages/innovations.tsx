@@ -1,7 +1,9 @@
 import { Header } from "@/components/header";
+import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { Card } from "@/components/ui/card";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { usePageTitle } from "@/hooks/use-page-title";
 import { Brain, Shield, Cloud, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -37,6 +39,8 @@ const highlights = [
 ];
 
 export default function Innovations() {
+  usePageTitle("Innovation Lab & Emerging Tech");
+
   return (
     <>
       <Header />
