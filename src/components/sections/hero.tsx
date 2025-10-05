@@ -101,7 +101,7 @@ export function Hero() {
             />
 
             <motion.div
-              className="mt-6 flex flex-wrap items-center gap-3 text-sm text-white/85"
+              className="mt-6 flex flex-wrap items-center gap-3 text-sm text-white/80"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -248,7 +248,7 @@ export function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 * index }}
                 >
-                  <div className="text-xs uppercase tracking-wide text-indigo-100/90">{metric.label}</div>
+                  <div className="text-xs uppercase tracking-wide text-indigo-100/80">{metric.label}</div>
                   <div className="mt-2 text-2xl font-bold text-white">{metric.value}</div>
                   <div className="mt-1 text-xs text-white/70">{metric.caption}</div>
                 </motion.div>
