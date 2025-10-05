@@ -19,7 +19,7 @@ export function IndustryDetailSection({
   outcomes = [],
   subtitle,
 }: IndustryDetailProps) {
-  usePageTitle(`${title} Industry Solutions`);
+  usePageTitle(`${title} Industry Solutions & Growth Strategies`);
 
   return (
     <div className="min-h-screen bg-white">

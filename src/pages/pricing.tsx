@@ -100,7 +100,7 @@ const videoPlans: Plan[] = [
   { name: "Corporate Films & Brand Stories", price: "₹1,20,000–₹6,00,000+", tagline: "Script to edit", features: ["Scripting", "Shoot", "Edit & color"] },
   { name: "Explainer Videos (2D/3D/Whiteboard/Motion)", price: "₹60,000–₹3,00,000+", tagline: "Animation kits", features: ["Storyboard", "VO & music", "Mastering"] },
   { name: "Advertisement & Commercial Videos", price: "₹2,00,000–₹12,00,000+", tagline: "Performance ads", features: ["Concept", "Production", "Formats"] },
-  { name: "Training & E‑learning Videos", price: "₹80,000–₹4,00,000+", tagline: "Instructional", features: ["SME capture", "Modules", "LMS exports"] },
+  { name: "Training & E‑learning Videos", price: "��80,000–₹4,00,000+", tagline: "Instructional", features: ["SME capture", "Modules", "LMS exports"] },
   { name: "Event & Conference Coverage (Live)", price: "₹1,00,000–₹5,00,000+", tagline: "Multi‑cam/live", features: ["Live switch", "Streaming", "Highlights"] },
   { name: "Short‑form Video (Reels/Shorts/TikTok)", price: "₹40,000–₹1,50,000/mo", tagline: "Always‑on", features: ["Hooks", "Editing", "Scheduling"] },
   { name: "Drone Shoot Services", price: "₹35,000–₹1,20,000", tagline: "Aerial capture", features: ["Licensed pilots", "4K/6K", "Compliance"] },
@@ -194,7 +194,7 @@ function Section({ title, subtitle, items, bg }: { title: string; subtitle?: str
 }
 
 export default function Pricing() {
-  usePageTitle("Pricing");
+  usePageTitle("Pricing for AI, Marketing & Technology Services");
 
   return (
     <>

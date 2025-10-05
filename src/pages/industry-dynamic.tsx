@@ -8,7 +8,7 @@ import { industryIndex } from "@/data/industry-catalog";
 export default function IndustryDynamic() {
   const { slug } = useParams();
   const entry = slug ? industryIndex[slug] : undefined;
-  const pageTitle = entry ? `${entry.title} Industry Solutions` : "Industry Not Found";
+  const pageTitle = entry ? `${entry.title} Industry Solutions & Growth Strategies` : "Industry Not Found";
   usePageTitle(pageTitle);
 
   if (!entry) {

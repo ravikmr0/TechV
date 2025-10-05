@@ -1,7 +1,10 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 export default function DataSecurity() {
+  usePageTitle("Data Security & Compliance Practices");
+
   return (
     <>
       <Header />

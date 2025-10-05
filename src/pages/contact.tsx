@@ -111,7 +111,7 @@ const faqs = [
 ];
 
 export default function Contact() {
-  usePageTitle("Contact Us");
+  usePageTitle("Contact Tech Vexor Growth Experts");
 
   return (
     <div className="min-h-screen bg-white">

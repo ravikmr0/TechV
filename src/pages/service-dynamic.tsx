@@ -8,7 +8,7 @@ import { serviceIndex } from "@/data/services-catalog";
 export default function ServiceDynamic() {
   const { slug } = useParams();
   const entry = slug ? serviceIndex[slug] : undefined;
-  const pageTitle = entry ? entry.title : "Service Not Found";
+  const pageTitle = entry ? `${entry.title} Services & Solutions` : "Service Not Found";
   usePageTitle(pageTitle);
 
   if (!entry) {

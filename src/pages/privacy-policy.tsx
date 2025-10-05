@@ -1,7 +1,10 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 export default function PrivacyPolicy() {
+  usePageTitle("Privacy Policy & Data Handling");
+
   return (
     <>
       <Header />

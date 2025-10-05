@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 const jobOpenings = [
   {
@@ -182,6 +183,8 @@ const values = [
 ];
 
 export default function Careers() {
+  usePageTitle("Careers & Open Roles in AI and Marketing");
+
   return (
     <div className="min-h-screen bg-white">
       <Header />

@@ -23,7 +23,7 @@ export function ServiceDetailSection({
   ctaLabel = "Talk to an expert",
   ctaHref = "/contact",
 }: ServiceDetailProps) {
-  usePageTitle(title);
+  usePageTitle(`${title} Services & Solutions`);
 
   return (
     <div className="min-h-screen bg-white">

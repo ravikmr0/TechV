@@ -9,7 +9,7 @@ import { Chrome, Github, Mail } from "lucide-react";
 import { useState } from "react";
 
 export default function Login() {
-  usePageTitle("Login");
+  usePageTitle("Client Portal Login");
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

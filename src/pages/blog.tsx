@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Calendar, Clock, User, ArrowRight, Search } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 const featuredPost = {
   id: 1,
@@ -108,6 +109,8 @@ const categories = [
 ];
 
 export default function Blog() {
+  usePageTitle("Insights & Resources Blog");
+
   return (
     <div className="min-h-screen bg-white">
       <Header />

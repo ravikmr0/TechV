@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
+import { usePageTitle } from "@/hooks/use-page-title";
 import {
   ArrowRight,
   TrendingUp,
@@ -215,6 +216,8 @@ const caseStudies = [
 ];
 
 export default function CaseStudies() {
+  usePageTitle("Case Studies & Success Stories");
+
   const industries = useMemo(() => Array.from(new Set(caseStudies.map(cs => cs.industry))), []);
   const allTags = useMemo(() => Array.from(new Set(caseStudies.flatMap(cs => cs.tags))), []);
   const [query, setQuery] = useState("");
