@@ -6,12 +6,6 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   const tags = ["Website", "Social Media", "Digital Marketing", "Performance Marketing"] as const;
-  const metrics = [
-    { label: "Organic Traffic", value: "+142%", caption: "Last 90 days" },
-    { label: "Leads Won", value: "+78%", caption: "Month over month" },
-    { label: "ROAS", value: "4.2×", caption: "Average client lift" },
-    { label: "CTR", value: "3.8%", caption: "Paid media campaigns" },
-  ] as const;
 
   return (
     <section className="relative min-h-[calc(100vh-5rem)] min-h-[calc(100svh-5rem)] overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-800">
@@ -50,16 +44,24 @@ export function Hero() {
             </motion.h1>
 
             <motion.p
-              className="mt-4 text-base text-white/80 sm:text-lg"
+              className="mt-4 text-base text-white/75 md:hidden"
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15 }}
+            >
+              AI-led campaigns, responsive builds, and growth playbooks for every channel.
+            </motion.p>
+            <motion.p
+              className="mt-4 hidden text-base text-white/80 sm:text-lg md:block"
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
               We blend AI strategy, responsive web engineering, and performance marketing to accelerate demand generation across every channel.
             </motion.p>
 
             <motion.div
-              className="mt-6 hidden overflow-hidden rounded-full border border-white/10 bg-white/5 px-4 py-2 sm:block"
+              className="mt-6 hidden overflow-hidden rounded-full border border-white/10 bg-white/5 px-4 py-2 lg:block"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25 }}
@@ -84,9 +86,9 @@ export function Hero() {
               </motion.div>
             </motion.div>
 
-            <div className="mt-6 flex flex-wrap gap-2 sm:hidden">
+            <div className="mt-6 flex gap-2 overflow-x-auto rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/80 lg:hidden">
               {tags.map((tag) => (
-                <span key={tag} className="rounded-full bg-white/10 px-3 py-1 text-xs text-white">
+                <span key={tag} className="shrink-0 rounded-full bg-white/15 px-3 py-1 font-medium text-white">
                   {tag}
                 </span>
               ))}
@@ -165,7 +167,7 @@ export function Hero() {
           </div>
 
           <div className="w-full lg:ml-auto">
-            <div className="relative hidden h-[340px] w-full md:block lg:h-[420px] xl:h-[460px]">
+            <div className="relative hidden h-[340px] w-full xl:block xl:h-[420px] 2xl:h-[460px]">
               <motion.div
                 className="absolute inset-0 rounded-3xl border border-white/10 bg-white/5 backdrop-blur"
                 initial={{ opacity: 0, scale: 0.96 }}
@@ -183,44 +185,6 @@ export function Hero() {
                 transition={{ duration: 38, repeat: Infinity, ease: "linear" }}
               />
 
-              <motion.div
-                className="absolute left-6 top-8 rounded-2xl bg-white/90 px-5 py-4 text-slate-900 shadow-xl"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-              >
-                <div className="text-xs text-slate-500">Organic Traffic</div>
-                <div className="text-2xl font-bold">+142%</div>
-                <div className="text-xs text-emerald-600">Last 90 days</div>
-              </motion.div>
-
-              <motion.div
-                className="absolute right-8 top-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 px-5 py-4 text-white shadow-2xl"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <div className="text-xs text-white/70">Leads Won</div>
-                <div className="text-2xl font-bold">+78%</div>
-                <div className="text-xs text-white/70">MoM</div>
-              </motion.div>
-
-              <motion.div
-                className="absolute left-8 bottom-12 rounded-xl bg-white/90 px-4 py-3 text-slate-900 shadow-lg"
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <div className="text-xs text-slate-500">ROAS</div>
-                <div className="text-xl font-semibold">4.2×</div>
-              </motion.div>
-
-              <motion.div
-                className="absolute right-8 bottom-10 rounded-xl bg-white/90 px-4 py-3 text-slate-900 shadow-lg"
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <div className="text-xs text-slate-500">CTR</div>
-                <div className="text-xl font-semibold">3.8%</div>
-              </motion.div>
 
               <div className="pointer-events-none absolute inset-0 rounded-3xl [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0.9),transparent)]">
                 <div
@@ -234,26 +198,6 @@ export function Hero() {
               </div>
             </div>
 
-            <motion.div
-              className="mt-10 grid grid-cols-1 gap-4 md:hidden sm:grid-cols-2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-            >
-              {metrics.map((metric, index) => (
-                <motion.div
-                  key={metric.label}
-                  className="rounded-2xl border border-white/15 bg-white/10 p-5 text-center text-white backdrop-blur"
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 * index }}
-                >
-                  <div className="text-xs uppercase tracking-wide text-indigo-100/80">{metric.label}</div>
-                  <div className="mt-2 text-2xl font-bold text-white">{metric.value}</div>
-                  <div className="mt-1 text-xs text-white/70">{metric.caption}</div>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
         </div>
       </div>
