@@ -86,9 +86,9 @@ export function Hero() {
               </motion.div>
             </motion.div>
 
-            <div className="mt-6 flex gap-2 overflow-x-auto rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/80 lg:hidden">
+            <div className="mt-6 flex gap-2 overflow-x-auto rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/80 lg:hidden snap-x snap-mandatory">
               {tags.map((tag) => (
-                <span key={tag} className="shrink-0 rounded-full bg-white/15 px-3 py-1 font-medium text-white">
+                <span key={tag} className="shrink-0 rounded-full bg-white/15 px-3 py-1 font-medium text-white snap-center">
                   {tag}
                 </span>
               ))}
