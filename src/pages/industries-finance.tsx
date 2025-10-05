@@ -1,8 +1,11 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { IndustryDetailSection } from "@/components/sections/industry-detail";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 export default function IndustryFinance() {
+  usePageTitle("Finance Industry Solutions & Growth Strategies");
+
   return (
     <>
       <Header />
