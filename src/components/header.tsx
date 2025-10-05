@@ -78,23 +78,67 @@ export function Header() {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={navigationMenuTriggerStyle()}>Services</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid gap-3 p-4 md:w-[700px] lg:w-[900px] grid-cols-2 lg:grid-cols-3">
-                      {serviceGroups.slice(0, 3).map((group, gi) => (
-                        <div key={gi}>
-                          <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">{group.name}</h4>
-                          <ul className="space-y-1">
-                            {group.items.slice(0, 4).map((svc, si) => (
-                              <li key={si}>
-                                <Link to={`/services/${svc.slug}`} className="text-sm text-slate-700 hover:text-indigo-600">
-                                  {svc.title}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                      <div className="self-end">
-                        <Link to="/services" className="text-sm text-indigo-600 hover:underline">Explore all services →</Link>
+                    <div className="grid gap-6 p-6 md:w-[600px] lg:w-[700px] grid-cols-2">
+                      <div>
+                        <h4 className="text-sm font-semibold text-slate-800 mb-3">Core Services</h4>
+                        <ul className="space-y-2.5">
+                          <li>
+                            <Link to="/services/website-development" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Website Development
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/services/web-application-development" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Web Application Development
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/services/mobile-app-development" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Mobile App Development
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/services/chatbot-ai-automation" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              AI & Automation
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/services/cloud-services" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Cloud Solutions
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-semibold text-slate-800 mb-3">Marketing & Design</h4>
+                        <ul className="space-y-2.5">
+                          <li>
+                            <Link to="/services/seo" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              SEO & Digital Marketing
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/services/ui-ux" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              UI/UX Design
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/services/brand-identity" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Brand Identity
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/services/content-marketing" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Content Marketing
+                            </Link>
+                          </li>
+                          <li className="pt-2 border-t border-slate-200">
+                            <Link to="/services" className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
+                              View All Services
+                              <span className="text-xs">→</span>
+                            </Link>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </NavigationMenuContent>
@@ -104,23 +148,67 @@ export function Header() {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={navigationMenuTriggerStyle()}>Industries</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid gap-3 p-4 md:w-[700px] lg:w-[900px] grid-cols-2 lg:grid-cols-3">
-                      {industryGroups.slice(0, 3).map((group, gi) => (
-                        <div key={gi}>
-                          <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">{group.name}</h4>
-                          <ul className="space-y-1">
-                            {group.items.slice(0, 4).map((ind, ii) => (
-                              <li key={ii}>
-                                <Link to={`/industries/${ind.slug}`} className="text-sm text-slate-700 hover:text-indigo-600">
-                                  {ind.title}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                      <div className="self-end">
-                        <Link to="/industries" className="text-sm text-indigo-600 hover:underline">See industry use cases →</Link>
+                    <div className="grid gap-6 p-6 md:w-[600px] lg:w-[700px] grid-cols-2">
+                      <div>
+                        <h4 className="text-sm font-semibold text-slate-800 mb-3">Business & Tech</h4>
+                        <ul className="space-y-2.5">
+                          <li>
+                            <Link to="/industries/software-development" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Software Development
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/industries/ecommerce-general" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              E-commerce
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/industries/digital-marketing-ads" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Digital Marketing
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/industries/banks-credit-unions" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Finance & Banking
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/industries/residential-commercial-real-estate" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Real Estate
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-semibold text-slate-800 mb-3">Services & Retail</h4>
+                        <ul className="space-y-2.5">
+                          <li>
+                            <Link to="/industries/hospitals-clinics" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Healthcare
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/industries/schools" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Education
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/industries/restaurants-catering" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Restaurants & Hospitality
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/industries/food-processing" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Manufacturing
+                            </Link>
+                          </li>
+                          <li className="pt-2 border-t border-slate-200">
+                            <Link to="/industries" className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
+                              View All Industries
+                              <span className="text-xs">→</span>
+                            </Link>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </NavigationMenuContent>
