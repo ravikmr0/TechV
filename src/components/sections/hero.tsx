@@ -14,7 +14,7 @@ export function Hero() {
   ] as const;
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-800">
+    <section className="relative min-h-[calc(100vh-5rem)] min-h-[calc(100svh-5rem)] overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-800">
       <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1639322537228-f710d846310a')] bg-cover bg-center" />
       <motion.div
         className="absolute -top-32 -left-32 h-[30rem] w-[30rem] rounded-full bg-indigo-500/25 blur-3xl"
