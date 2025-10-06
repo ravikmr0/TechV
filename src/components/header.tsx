@@ -78,8 +78,8 @@ export function Header() {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={navigationMenuTriggerStyle()}>Services</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid gap-6 p-6 md:w-[600px] lg:w-[700px] grid-cols-2">
-                      <div>
+                    <div className="grid gap-6 p-6 md:w-[500px] lg:w-[500px] grid-cols-2 ">
+                      <div >
                         <h4 className="text-sm font-semibold text-slate-800 mb-3">Core Services</h4>
                         <ul className="space-y-2.5">
                           <li>
@@ -88,13 +88,13 @@ export function Header() {
                             </Link>
                           </li>
                           <li>
-                            <Link to="/services/web-application-development" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
-                              Web Application Development
+                            <Link to="/services/mobile-app-developmentt" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Mobile App Development
                             </Link>
                           </li>
                           <li>
-                            <Link to="/services/mobile-app-development" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
-                              Mobile App Development
+                            <Link to="/services/" className="text-sm text-slate-600 hover:text-blue-600 transition-colors block">
+                              Digital Marketing
                             </Link>
                           </li>
                           <li>
@@ -148,7 +148,7 @@ export function Header() {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={navigationMenuTriggerStyle()}>Industries</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid gap-6 p-6 md:w-[600px] lg:w-[700px] grid-cols-2">
+                    <div className="grid gap-6 p-6 md:w-[500px] lg:w-[500px] grid-cols-2">
                       <div>
                         <h4 className="text-sm font-semibold text-slate-800 mb-3">Business & Tech</h4>
                         <ul className="space-y-2.5">

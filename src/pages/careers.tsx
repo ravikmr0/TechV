@@ -189,22 +189,22 @@ export default function Careers() {
     <div className="min-h-screen bg-white">
       <Header />
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-purple-50 to-pink-50 py-20">
+      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-4 bg-purple-100 text-purple-800 hover:bg-purple-200">
+            <Badge className="mb-4 bg-indigo-100 text-indigo-800 hover:bg-indigo-200">
               Join Our Team
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Build the Future of
-              <span className="text-purple-600"> AI with Us</span>
+              <span className="text-cyan-500"> AI with Us</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-indigo-100 mb-8 leading-relaxed">
               Join a team of passionate innovators working on cutting-edge AI
               solutions that transform businesses and improve lives around the
               world.
             </p>
-            <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+            <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700">
               View Open Positions
             </Button>
           </div>

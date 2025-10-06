@@ -9,7 +9,7 @@ import { usePageTitle } from "@/hooks/use-page-title";
 const teamMembers = [
   {
     name: "Sundar Tomar",
-    role: "Co-Founder & Managing Director",
+    role: "Co-Founder & Director",
     image: "/images/sundar.jpg",
     experience: "at Tech Vexor | Driving business growth through strategic leadership and fund management.",
     linkedin: "https://www.linkedin.com/company/techvexor/",
@@ -62,18 +62,18 @@ export default function About() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-indigo-50 to-white py-20">
+  {/* Hero Section */}
+  <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="mb-4 bg-indigo-100 text-indigo-800 hover:bg-indigo-200">
               About Tech Vexor
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Pioneering the Future with
-              <span className="text-indigo-600"> AI Innovation</span>
+              <span className="text-amber-200"> AI Innovation</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-indigo-100 mb-8 leading-relaxed">
               We are a forward-thinking technology company specializing in AI
               solutions, cloud computing, and digital transformation. Our
               mission is to empower businesses with cutting-edge technology that

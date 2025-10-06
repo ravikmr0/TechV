@@ -76,7 +76,7 @@ const socialLinks = [
   {
     name: "YouTube",
     icon: Youtube,
-    href: "https://www.youtube.com/@techvexor",
+    href: "https://www.youtube.com/@techvexorofficial",
     color: "text-red-600",
   },
   {
@@ -117,13 +117,13 @@ export default function Contact() {
     <div className="min-h-screen bg-white">
       <Header />
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-orange-50 to-red-50 py-20">
+      <section className="bg-gradient-to-br from-slate-700 to-slate-900 py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="mb-4 bg-orange-100 text-orange-800 hover:bg-orange-200">
               Get In Touch
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-50 mb-6">
               Let's Build Something
               <span className="text-orange-600"> Amazing Together</span>
             </h1>
@@ -186,7 +186,7 @@ export default function Contact() {
 
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        Company
+                 .       Company/Business
                       </label>
                       <Input placeholder="Your Company Name" />
                     </div>
@@ -195,14 +195,14 @@ export default function Contact() {
                       <label className="block text-sm font-medium mb-2">
                         Project Type
                       </label>
-                      <select className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                      <select className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-slate-600 focus:border-transparent">
                         <option value="">Select a service</option>
-                        <option value="ai-consulting">AI Consulting</option>
-                        <option value="ml-development">ML Development</option>
-                        <option value="chatbot-development">
-                          Chatbot Development
-                        </option>
-                        <option value="computer-vision">Computer Vision</option>
+                        <option value="ai-consulting">Website Development</option>
+                        <option value="ai-consulting">Digital Marketing</option>
+                        <option value="ai-consulting">Social Media Management</option>
+                        <option value="ml-development">Brand Building</option>
+                        <option value="chatbot-development">Chatbot Development</option>
+                        <option value="computer-vision">AI Automation</option>
                         <option value="data-analytics">Data Analytics</option>
                         <option value="other">Other</option>
                       </select>
@@ -212,12 +212,12 @@ export default function Contact() {
                       <label className="block text-sm font-medium mb-2">
                         Project Budget
                       </label>
-                      <select className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                      <select className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-slate-600 focus:border-transparent">
                         <option value="">Select budget range</option>
-                        <option value="10k-25k">$10k - $25k</option>
-                        <option value="25k-50k">$25k - $50k</option>
-                        <option value="50k-100k">$50k - $100k</option>
-                        <option value="100k+">$100k+</option>
+                        <option value="10k-25k">₹10k - ₹25k</option>
+                        <option value="25k-50k">₹25k - ₹50k</option>
+                        <option value="50k-100k">₹50k - ₹100k</option>
+                        <option value="100k+">₹100k+</option>
                       </select>
                     </div>
 
@@ -232,7 +232,7 @@ export default function Contact() {
                     </div>
 
                     <Button
-                      className="w-full bg-orange-600 hover:bg-orange-700"
+                      className="w-full bg-slate-800 hover:bg-slate-900"
                       size="lg"
                     >
                       Send Message
@@ -250,28 +250,28 @@ export default function Contact() {
                   <h3 className="text-xl font-semibold mb-4">Quick Contact</h3>
                   <div className="space-y-4">
                     <div className="flex items-center space-x-3">
-                      <Phone className="w-5 h-5 text-orange-600" />
+                      <Phone className="w-5 h-5 text-slate-600" />
                       <div>
                         <p className="font-medium">Phone</p>
                         <p className="text-gray-600">{contactInfo.phone}</p>
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <Mail className="w-5 h-5 text-orange-600" />
+                      <Mail className="w-5 h-5 text-slate-600" />
                       <div>
                         <p className="font-medium">Email</p>
                         <p className="text-gray-600">{contactInfo.email}</p>
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <MapPin className="w-5 h-5 text-orange-600" />
+                      <MapPin className="w-5 h-5 text-slate-600" />
                       <div>
                         <p className="font-medium">Address</p>
                         <p className="text-gray-600">{contactInfo.address}</p>
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <Clock className="w-5 h-5 text-orange-600" />
+                      <Clock className="w-5 h-5 text-slate-600" />
                       <div>
                         <p className="font-medium">Business Hours</p>
                         <p className="text-gray-600">{contactInfo.hours}</p>
@@ -307,47 +307,14 @@ export default function Contact() {
                     For critical issues or urgent project needs, call our
                     emergency line:
                   </p>
-                  <Button className="bg-orange-600 hover:bg-orange-700">
+                  <a href="tel:+917895849990">
+                  <Button className="bg-slate-800 hover:bg-slate-900">
                     <Phone className="w-4 h-4 mr-2" />
                     Call Emergency Line
                   </Button>
+                  </a>
                 </Card>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Global Offices */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Our Global Offices
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {offices.map((office, index) => (
-                <Card
-                  key={index}
-                  className="p-6 text-center hover:shadow-lg transition-shadow"
-                >
-                  <h3 className="text-xl font-semibold mb-4">{office.city}</h3>
-                  <div className="space-y-3 text-sm text-gray-600">
-                    <div className="flex items-start justify-center space-x-2">
-                      <MapPin className="w-4 h-4 mt-0.5 text-orange-600" />
-                      <p>{office.address}</p>
-                    </div>
-                    <div className="flex items-center justify-center space-x-2">
-                      <Phone className="w-4 h-4 text-orange-600" />
-                      <p>{office.phone}</p>
-                    </div>
-                    <div className="flex items-center justify-center space-x-2">
-                      <Mail className="w-4 h-4 text-orange-600" />
-                      <p>{office.email}</p>
-                    </div>
-                  </div>
-                </Card>
-              ))}
             </div>
           </div>
         </div>

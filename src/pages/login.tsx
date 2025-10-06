@@ -41,7 +41,8 @@ export default function Login() {
     <>
       <Header />
       <main className="relative min-h-screen overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(79,70,229,0.15),transparent_40%),radial-gradient(circle_at_80%_30%,rgba(236,72,153,0.15),transparent_45%),radial-gradient(circle_at_50%_80%,rgba(14,165,233,0.15),transparent_45%)]" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,rgba(37,99,235,0.25),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(0,181,216,0.25),transparent_45%)] bg-[#0F172A]" />
+
         <section className="py-16">
           <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Brand intro */}
@@ -71,7 +72,7 @@ export default function Login() {
             {/* Right - Auth card */}
             <div className="max-w-xl w-full mx-auto">
               <div className="rounded-2xl p-[1px] bg-gradient-to-r from-indigo-500/60 via-fuchsia-500/60 to-cyan-500/60 shadow-2xl">
-                <Card className="p-8 bg-white rounded-2xl">
+                <Card className="p-8 bg-slate-800 rounded-2xl">
                   <h2 className="text-2xl font-semibold mb-6">Sign in to Tech Vexor</h2>
                   {envMissing && (
                     <div className="mb-4 rounded-md bg-amber-50 text-amber-800 p-3 text-sm">
@@ -96,7 +97,7 @@ export default function Login() {
                     </Button>
                   </div>
 
-                  <div className="my-6 flex items-center text-slate-400">
+                  <div className="my-6 flex items-center text-slate-200">
                     <div className="h-px bg-slate-200 flex-1" />
                     <span className="px-3 text-xs">or sign in with email</span>
                     <div className="h-px bg-slate-200 flex-1" />

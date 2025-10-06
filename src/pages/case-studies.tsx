@@ -238,24 +238,24 @@ export default function CaseStudies() {
     <div className="min-h-screen bg-white">
       <Header />
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-24 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-indigo-500 py-24 overflow-hidden">
         <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center">
             <div className="flex items-center justify-center mb-6">
               <Award className="w-6 h-6 text-blue-600 mr-2" />
-              <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200 border-0 px-4 py-2">
+              <Badge className="bg-blue-100 text-oringe-800 hover:bg-blue-200 border-0 px-4 py-2">
                 Client Success Stories
               </Badge>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-50 mb-8 leading-tight">
               Transforming Businesses with
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-emerald-300 to-emerald-500 bg-clip-text text-transparent">
                 {" "}
                 AI Innovation
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-100 mb-12 leading-relaxed max-w-4xl mx-auto">
               Discover how industry leaders achieved remarkable results through
               our cutting-edge AI solutions and strategic partnerships.
             </p>

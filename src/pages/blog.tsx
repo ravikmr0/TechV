@@ -115,17 +115,17 @@ export default function Blog() {
     <div className="min-h-screen bg-white">
       <Header />
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-50 to-blue-50 py-20">
+      <section className="bg-gradient-to-br from-slate-600 to-slate-700 py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="mb-4 bg-green-100 text-green-800 hover:bg-green-200">
               Blog & Insights
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-50 mb-6">
               AI Insights &
               <span className="text-green-600"> Tech Innovations</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-gray-100 mb-8 leading-relaxed">
               Stay updated with the latest trends, insights, and best practices
               in AI, machine learning, and digital transformation.
             </p>

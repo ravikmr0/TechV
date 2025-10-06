@@ -83,21 +83,18 @@ export default function Projects() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
+      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-slate-900 [mask-image:linear-gradient(0deg,rgba(0,0,0,0.9),rgba(0,0,0,0.6))] -z-10"></div>
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center">
-            <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200 border-0 px-4 py-2 mb-6">
+            <Badge className="bg-indigo-100 text-indigo-800 hover:bg-indigo-200 border-0 px-4 py-2 mb-6">
               Our Portfolio
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
               Innovative Projects
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                {" "}
-                Delivered
-              </span>
+              <span className="text-amber-400"> Delivered</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-indigo-100 mb-12 leading-relaxed max-w-4xl mx-auto">
               Explore our portfolio of successful AI implementations and digital
               transformation projects across various industries.
             </p>
