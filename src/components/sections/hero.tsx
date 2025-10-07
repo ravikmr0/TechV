@@ -58,8 +58,8 @@ export function Hero() {
       />
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
-        <div className="relative z-10 grid items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 py-12 sm:py-16 md:py-20 lg:grid-cols-2 lg:py-24 xl:py-28 min-h-[100svh]">
-          <div className="w-full max-w-2xl mx-auto lg:mx-0 text-center lg:text-left space-y-4 sm:space-y-5 md:space-y-6">
+        <div className="relative z-10 grid items-center gap-4 sm:gap-6 md:gap-10 lg:gap-12 xl:gap-16 py-8 sm:py-12 md:py-20 lg:grid-cols-2 lg:py-24 xl:py-28 min-h-[100svh]">
+          <div className="w-full max-w-2xl mx-auto lg:mx-0 text-center lg:text-left space-y-3 sm:space-y-4 md:space-y-6">
             <motion.span
               className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-3 py-1.5 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-cyan-100 shadow-lg"
               initial={{ opacity: 0, y: -20 }}
@@ -78,7 +78,7 @@ export function Hero() {
             </motion.span>
 
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold leading-[1.15] sm:leading-tight text-white"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold leading-tight sm:leading-tight text-white px-2 sm:px-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -91,7 +91,7 @@ export function Hero() {
             </motion.h1>
 
             <motion.p
-              className="text-sm sm:text-base md:text-lg lg:text-xl text-white/70 leading-relaxed max-w-xl mx-auto lg:mx-0"
+              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/70 leading-relaxed max-w-xl mx-auto lg:mx-0 px-2 sm:px-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -171,13 +171,13 @@ export function Hero() {
             </motion.div>
 
             <motion.div
-              className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 md:gap-3.5 items-stretch sm:items-center justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-2 sm:gap-2.5 md:gap-3 items-stretch sm:items-center justify-center lg:justify-start px-2 sm:px-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
-                <GradientButton asChild size="lg" className="w-full sm:w-auto text-sm md:text-base shadow-2xl">
+                <GradientButton asChild size="lg" className="w-full sm:w-auto text-xs sm:text-sm md:text-base shadow-2xl h-10 sm:h-11 md:h-12">
                   <Link to="/pricing">Get Pricing</Link>
                 </GradientButton>
               </motion.div>
@@ -186,15 +186,15 @@ export function Hero() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="w-full sm:w-auto text-sm md:text-base border-white/25 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20"
+                  className="w-full sm:w-auto text-xs sm:text-sm md:text-base border-white/25 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 h-10 sm:h-11 md:h-12"
                 >
                   <Link to="/services">Explore Services</Link>
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
-                <Button asChild variant="ghost" size="lg" className="w-full sm:w-auto text-sm md:text-base text-slate-200 hover:text-white hover:bg-white/10">
+                <Button asChild variant="ghost" size="lg" className="w-full sm:w-auto text-xs sm:text-sm md:text-base text-slate-200 hover:text-white hover:bg-white/10 h-10 sm:h-11 md:h-12">
                   <a href="tel:+917895849990">
-                    <Phone className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+                    <Phone className="mr-1.5 sm:mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5" />
                     <span className="hidden sm:inline">+91 78958 49990</span>
                     <span className="sm:hidden">Call Now</span>
                   </a>
@@ -203,9 +203,9 @@ export function Hero() {
             </motion.div>
           </div>
 
-          <div className="w-full max-w-md sm:max-w-lg mx-auto lg:max-w-none order-first lg:order-last">
+          <div className="w-full max-w-md sm:max-w-lg mx-auto lg:max-w-none order-first lg:order-last -mt-4 sm:mt-0">
             <motion.div
-              className="relative h-[280px] sm:h-[350px] md:h-[420px] lg:h-[480px] xl:h-[520px] 2xl:h-[560px] w-full"
+              className="relative h-[260px] sm:h-[320px] md:h-[420px] lg:h-[480px] xl:h-[520px] 2xl:h-[560px] w-full"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -227,23 +227,23 @@ export function Hero() {
                 </div>
 
                 <motion.div
-                  className="absolute left-1/2 top-1/2 h-40 w-40 sm:h-48 sm:w-48 md:h-64 md:w-64 lg:h-80 lg:w-80 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-cyan-400/30"
+                  className="absolute left-1/2 top-1/2 h-32 w-32 sm:h-48 sm:w-48 md:h-64 md:w-64 lg:h-80 lg:w-80 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-cyan-400/30"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 />
                 <motion.div
-                  className="absolute left-1/2 top-1/2 h-28 w-28 sm:h-36 sm:w-36 md:h-48 md:w-48 lg:h-60 lg:w-60 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-blue-400/40"
+                  className="absolute left-1/2 top-1/2 h-24 w-24 sm:h-36 sm:w-36 md:h-48 md:w-48 lg:h-60 lg:w-60 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-blue-400/40"
                   animate={{ rotate: -360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 />
                 <motion.div
-                  className="absolute left-1/2 top-1/2 h-20 w-20 sm:h-24 sm:w-24 md:h-32 md:w-32 lg:h-40 lg:w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-violet-400/50"
+                  className="absolute left-1/2 top-1/2 h-16 w-16 sm:h-24 sm:w-24 md:h-32 md:w-32 lg:h-40 lg:w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-violet-400/50"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                 />
 
-                <div className="absolute inset-0 flex items-center justify-center px-3 sm:px-4 md:px-6 lg:px-8">
-                  <div className="relative w-full max-w-[240px] sm:max-w-xs md:max-w-sm">
+                <div className="absolute inset-0 flex items-center justify-center px-2 sm:px-4 md:px-6 lg:px-8">
+                  <div className="relative w-full max-w-[180px] sm:max-w-[240px] md:max-w-xs lg:max-w-sm">
                     {services.map((service, index) => {
                       const Icon = service.icon;
                       const isActive = index === activeService;
@@ -260,25 +260,25 @@ export function Hero() {
                           transition={{ duration: 0.5 }}
                         >
                           <motion.div
-                            className={`relative mb-3 sm:mb-4 md:mb-6 rounded-lg sm:rounded-xl md:rounded-2xl bg-gradient-to-br ${service.color} p-3 sm:p-4 md:p-5 shadow-2xl`}
+                            className={`relative mb-2 sm:mb-3 md:mb-4 lg:mb-6 rounded-lg sm:rounded-xl md:rounded-2xl bg-gradient-to-br ${service.color} p-2.5 sm:p-3 md:p-4 lg:p-5 shadow-2xl`}
                             animate={isActive ? {
                               rotate: [0, 5, -5, 0],
                               scale: [1, 1.05, 1]
                             } : {}}
                             transition={{ duration: 2, repeat: Infinity }}
                           >
-                            <Icon className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 text-white" strokeWidth={1.5} />
+                            <Icon className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-14 lg:w-14 text-white" strokeWidth={1.5} />
                             <motion.div
                               className="absolute inset-0 rounded-lg sm:rounded-xl md:rounded-2xl bg-white/20"
                               animate={{ opacity: [0, 0.5, 0] }}
                               transition={{ duration: 2, repeat: Infinity }}
                             />
                           </motion.div>
-                          <h3 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-1 sm:mb-2 px-2">
+                          <h3 className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-1 sm:mb-1.5 md:mb-2 px-1 sm:px-2">
                             {service.title}
                           </h3>
                           <motion.div
-                            className="h-0.5 sm:h-1 w-10 sm:w-12 md:w-16 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400"
+                            className="h-0.5 sm:h-0.5 md:h-1 w-8 sm:w-10 md:w-12 lg:w-16 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400"
                             initial={{ scaleX: 0 }}
                             animate={isActive ? { scaleX: 1 } : { scaleX: 0 }}
                             transition={{ duration: 0.5 }}
@@ -289,12 +289,12 @@ export function Hero() {
                   </div>
                 </div>
 
-                <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex gap-1 sm:gap-1.5 md:gap-2">
+                <div className="absolute bottom-3 sm:bottom-4 md:bottom-6 lg:bottom-8 left-1/2 -translate-x-1/2 flex gap-1 sm:gap-1.5 md:gap-2">
                   {services.map((_, index) => (
                     <motion.button
                       key={index}
                       className={`h-1 sm:h-1.5 md:h-2 rounded-full transition-all ${
-                        index === activeService ? "w-5 sm:w-6 md:w-8 bg-cyan-400" : "w-1 sm:w-1.5 md:w-2 bg-white/30"
+                        index === activeService ? "w-4 sm:w-5 md:w-6 lg:w-8 bg-cyan-400" : "w-1 sm:w-1.5 md:w-2 bg-white/30"
                       }`}
                       onClick={() => setActiveService(index)}
                       whileHover={{ scale: 1.2 }}
