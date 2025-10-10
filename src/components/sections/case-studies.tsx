@@ -13,32 +13,33 @@ import { Link } from "react-router-dom";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    title: "CTO",
-    company: "FinTech Solutions",
+    name: "Yogesh Chaudhary",
+    title: "Founder & CEO",
+    company: "EMCOBE Engineering & Consultants",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&q=80",
     quote:
-      "Tech Vexor's AI solutions increased our operational efficiency by 80%. Their expertise in fintech is unmatched.",
-    metrics: "80% increase in efficiency",
+      "Tech Vexor has professionally developed the EMCOBE Engineering & Consultants website delivering a modern, high-performance, and visually engaging digital presence",
+    metrics: "98% increase in efficiency",
   },
   {
-    name: "Michael Chen",
-    title: "CEO",
-    company: "HealthTech Innovations",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
+    name: "Sudheer Kumar",
+    title: "Founder & CEO",
+    company: "Harishyam Infra Pvt. Ltd.",
+    image: "https://scontent.fdel27-7.fna.fbcdn.net/v/t39.30808-6/557143563_1483592059547578_5155762935498424155_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=646rwRbwbL0Q7kNvwGN1KEh&_nc_oc=Adn7OEbryI9NICy6K64tOm4OBjpI_FdA1uffDIFUdDGpn8HL6g_BwHsFWj-fuqIg5hMbsen4jDB9xMYGlx25GxcK&_nc_zt=23&_nc_ht=scontent.fdel27-7.fna&_nc_gid=5hJ_81G9vGGAOciIBpNBkA&oh=00_AfeOlFp6Bbn0YL4Lqyv30LORAlkX_a5UBHquHOOyEBOdJg&oe=68ED5CCC",
     quote:
-      "The AI-powered diagnostic system developed by Tech Vexor reduced our processing time by 60%.",
-    metrics: "60% reduction in processing time",
+      "Tech Vexor has expertly developed the website for Harishyam Infra Pvt. Ltd., creating a sleek, professional, and performance-driven online presence.",
+    metrics: "94% reduction in processing time",
   },
   {
-    name: "Emily Rodriguez",
-    title: "Director of Operations",
-    company: "RetailTech",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
+    name: "Sunil Kumar",
+    title: "Head Chef & Owner",
+    company: "Omno's Pizza",
+    image: "https://www.omnospizza.com/images/sunil.png",
     quote:
-      "Their custom AI agent revolutionized our customer service, handling 75% of inquiries automatically.",
+      "Tech Vexor has creatively developed the website for Omno’s Pizza crafting a vibrant, appetizing, and user-friendly digital experience that perfectly reflects the brand’s delicious identity.",
     metrics: "75% automation in customer service",
   },
+  
 ];
 
 export function CaseStudies() {
@@ -97,8 +98,8 @@ export function CaseStudies() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="text-white" />
-          <CarouselNext className="text-white" />
+          <CarouselPrevious className="text-slate-950" />
+          <CarouselNext className="text-slate-950" />
           </Carousel>
         </div>
 
