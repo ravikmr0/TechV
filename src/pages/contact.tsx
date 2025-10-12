@@ -19,6 +19,9 @@ import {
 import { Header } from "@/components/header";
 import { Footer } from "@/components/sections/footer";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { useState } from "react";
+import { sendContactEmail, sendAutoReply } from "@/lib/email";
+import { Loader2, CheckCircle, AlertCircle } from "lucide-react";
 
 const contactInfo = {
   phone: "+91 7895849990",
@@ -113,6 +116,69 @@ const faqs = [
 export default function Contact() {
   usePageTitle("Contact Tech Vexor Growth Experts");
 
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    company: "",
+    projectType: "",
+    budget: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
+      setSubmitStatus('error');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Send email to Tech Vexor
+      const emailSent = await sendContactEmail(formData);
+      
+      if (emailSent) {
+        // Send auto-reply to user
+        const fullName = `${formData.firstName} ${formData.lastName}`;
+        await sendAutoReply(formData.email, fullName);
+        
+        setSubmitStatus('success');
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          company: "",
+          projectType: "",
+          budget: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -154,19 +220,51 @@ export default function Contact() {
               <div>
                 <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
                 <Card className="p-8">
-                  <form className="space-y-6">
+                  {submitStatus === 'success' && (
+                    <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      <div>
+                        <p className="text-green-800 font-medium">Message sent successfully!</p>
+                        <p className="text-green-700 text-sm">We'll get back to you within 24 hours.</p>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {submitStatus === 'error' && (
+                    <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-3">
+                      <AlertCircle className="w-5 h-5 text-red-600" />
+                      <div>
+                        <p className="text-red-800 font-medium">Failed to send message</p>
+                        <p className="text-red-700 text-sm">Please check required fields and try again.</p>
+                      </div>
+                    </div>
+                  )}
+                  
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium mb-2">
                           First Name *
                         </label>
-                        <Input placeholder="John" />
+                        <Input 
+                          name="firstName"
+                          value={formData.firstName}
+                          onChange={handleInputChange}
+                          placeholder="John" 
+                          required
+                        />
                       </div>
                       <div>
                         <label className="block text-sm font-medium mb-2">
                           Last Name *
                         </label>
-                        <Input placeholder="Doe" />
+                        <Input 
+                          name="lastName"
+                          value={formData.lastName}
+                          onChange={handleInputChange}
+                          placeholder="Doe" 
+                          required
+                        />
                       </div>
                     </div>
 
@@ -174,35 +272,58 @@ export default function Contact() {
                       <label className="block text-sm font-medium mb-2">
                         Email Address *
                       </label>
-                      <Input type="email" placeholder="john@company.com" />
+                      <Input 
+                        type="email" 
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="john@company.com" 
+                        required
+                      />
                     </div>
 
                     <div>
                       <label className="block text-sm font-medium mb-2">
                         Phone Number
                       </label>
-                      <Input type="tel" placeholder="+1 (555) 123-4567" />
+                      <Input 
+                        type="tel" 
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        placeholder="+1 (555) 123-4567" 
+                      />
                     </div>
 
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                 .       Company/Business
+                        Company/Business
                       </label>
-                      <Input placeholder="Your Company Name" />
+                      <Input 
+                        name="company"
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        placeholder="Your Company Name" 
+                      />
                     </div>
 
                     <div>
                       <label className="block text-sm font-medium mb-2">
                         Project Type
                       </label>
-                      <select className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-slate-600 focus:border-transparent">
+                      <select 
+                        name="projectType"
+                        value={formData.projectType}
+                        onChange={handleInputChange}
+                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-slate-600 focus:border-transparent"
+                      >
                         <option value="">Select a service</option>
-                        <option value="ai-consulting">Website Development</option>
-                        <option value="ai-consulting">Digital Marketing</option>
-                        <option value="ai-consulting">Social Media Management</option>
-                        <option value="ml-development">Brand Building</option>
+                        <option value="website-development">Website Development</option>
+                        <option value="digital-marketing">Digital Marketing</option>
+                        <option value="social-media-management">Social Media Management</option>
+                        <option value="brand-building">Brand Building</option>
                         <option value="chatbot-development">Chatbot Development</option>
-                        <option value="computer-vision">AI Automation</option>
+                        <option value="ai-automation">AI Automation</option>
                         <option value="data-analytics">Data Analytics</option>
                         <option value="other">Other</option>
                       </select>
@@ -212,7 +333,12 @@ export default function Contact() {
                       <label className="block text-sm font-medium mb-2">
                         Project Budget
                       </label>
-                      <select className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-slate-600 focus:border-transparent">
+                      <select 
+                        name="budget"
+                        value={formData.budget}
+                        onChange={handleInputChange}
+                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-slate-600 focus:border-transparent"
+                      >
                         <option value="">Select budget range</option>
                         <option value="10k-25k">₹10k - ₹25k</option>
                         <option value="25k-50k">₹25k - ₹50k</option>
@@ -226,16 +352,29 @@ export default function Contact() {
                         Message *
                       </label>
                       <Textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
                         placeholder="Tell us about your project, goals, and how we can help you..."
                         rows={5}
+                        required
                       />
                     </div>
 
                     <Button
+                      type="submit"
                       className="w-full bg-slate-800 hover:bg-slate-900"
                       size="lg"
+                      disabled={isSubmitting}
                     >
-                      Send Message
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Sending Message...
+                        </>
+                      ) : (
+                        'Send Message'
+                      )}
                     </Button>
                   </form>
                 </Card>
