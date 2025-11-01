@@ -24,7 +24,7 @@ const teamMembers = [
     email: "info@techvexor.com",
   },
   {
-    name: "Neha Singh",
+    name: "Neha Sharma",
     role: "Chief Technology Officer",
     image: "/images/neha.jpeg",
     experience: "Driving innovation and technology strategy to accelerate business growth and digital transformation.",
