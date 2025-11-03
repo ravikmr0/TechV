@@ -117,8 +117,7 @@ export default function Contact() {
   usePageTitle("Contact Tech Vexor Growth Experts");
 
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
     phone: "",
     company: "",
@@ -140,7 +139,7 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.message) {
       setSubmitStatus('error');
       return;
     }
@@ -154,13 +153,11 @@ export default function Contact() {
       
       if (emailSent) {
         // Send auto-reply to user
-        const fullName = `${formData.firstName} ${formData.lastName}`;
-        await sendAutoReply(formData.email, fullName);
+        await sendAutoReply(formData.email, formData.name);
         
         setSubmitStatus('success');
         setFormData({
-          firstName: "",
-          lastName: "",
+          name: "",
           email: "",
           phone: "",
           company: "",
@@ -241,31 +238,17 @@ export default function Contact() {
                   )}
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium mb-2">
-                          First Name *
-                        </label>
-                        <Input 
-                          name="firstName"
-                          value={formData.firstName}
-                          onChange={handleInputChange}
-                          placeholder="John" 
-                          required
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium mb-2">
-                          Last Name *
-                        </label>
-                        <Input 
-                          name="lastName"
-                          value={formData.lastName}
-                          onChange={handleInputChange}
-                          placeholder="Doe" 
-                          required
-                        />
-                      </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">
+                        Full Name *
+                      </label>
+                      <Input 
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        placeholder="John Doe" 
+                        required
+                      />
                     </div>
 
                     <div>
