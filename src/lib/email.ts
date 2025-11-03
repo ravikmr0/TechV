@@ -1,7 +1,5 @@
 export interface ContactFormData {
-  firstName?: string;
-  lastName?: string;
-  name?: string;
+  name: string;
   email: string;
   phone?: string;
   company?: string;
@@ -27,14 +25,15 @@ export const sendContactEmail = async (formData: ContactFormData): Promise<boole
       return false;
     }
 
-    return true;
+    const result = await response.json();
+    return result.success === true;
   } catch (error) {
     console.error('Error sending email:', error);
     return false;
   }
 };
 
-// Auto-reply is now handled by the API endpoint
+// Auto-reply is handled by the API endpoint
 export const sendAutoReply = async (userEmail: string, userName: string): Promise<boolean> => {
   // Auto-reply is sent automatically by the API endpoint
   return true;

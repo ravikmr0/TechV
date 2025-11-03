@@ -2,20 +2,35 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import nodemailer from 'nodemailer';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Enable CORS
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
+
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
-    const { name, email, phone, company, projectType, budget, message, firstName, lastName } = req.body;
+    const { name, email, phone, company, projectType, budget, message } = req.body;
 
     // Validate required fields
-    if (!email || !message) {
-      return res.status(400).json({ error: 'Email and message are required' });
+    if (!email || !message || !name) {
+      return res.status(400).json({ error: 'Name, email and message are required' });
     }
 
-    const fullName = name || `${firstName || ''} ${lastName || ''}`.trim();
+    // Validate environment variables
+    if (!process.env.EMAIL_ID || !process.env.App_Password) {
+      console.error('Missing environment variables: EMAIL_ID or App_Password');
+      return res.status(500).json({ error: 'Server configuration error' });
+    }
 
     // Create transporter using Gmail
     const transporter = nodemailer.createTransporter({
@@ -26,17 +41,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
     });
 
+    // Verify transporter configuration
+    await transporter.verify();
+
     // Email to Tech Vexor
     const mailOptions = {
       from: process.env.EMAIL_ID,
       to: 'leads.techvexor@gmail.com',
-      subject: `New Contact Form Submission from ${fullName}`,
+      subject: `New Contact Form Submission from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #ea580c;">New Contact Form Submission</h2>
           <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="color: #334155; margin-top: 0;">Contact Details</h3>
-            <p><strong>Name:</strong> ${fullName}</p>
+            <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
             <p><strong>Company:</strong> ${company || 'Not provided'}</p>
@@ -63,7 +81,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             <h1 style="color: white; margin: 0;">Tech Vexor</h1>
           </div>
           <div style="padding: 40px; background-color: #f8fafc;">
-            <h2 style="color: #334155;">Thank you for reaching out, ${fullName}!</h2>
+            <h2 style="color: #334155;">Thank you for reaching out, ${name}!</h2>
             <p style="color: #64748b; line-height: 1.6;">
               We've received your message and our team will get back to you within 24 hours.
             </p>
@@ -97,6 +115,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(200).json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
     console.error('Error sending email:', error);
-    return res.status(500).json({ error: 'Failed to send email', details: error instanceof Error ? error.message : 'Unknown error' });
+    return res.status(500).json({ 
+      error: 'Failed to send email', 
+      details: error instanceof Error ? error.message : 'Unknown error' 
+    });
   }
 }
