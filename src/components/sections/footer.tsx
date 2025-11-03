@@ -35,15 +35,24 @@ const services = [
   { name: "AI & Machine Learning Development", href: "/services/ai-ml" },
   { name: "AI Agent & Chatbot Design", href: "/services/ai-agents-chatbots" },
   { name: "Cybersecurity & Data Protection", href: "/services/cybersecurity" },
-  { name: "Custom Software & Web Development", href: "/services/custom-software" },
+  {
+    name: "Custom Software & Web Development",
+    href: "/services/custom-software",
+  },
 ];
 
 const industries = [
   { name: "Finance – AI-powered risk assessment", href: "/industries/finance" },
   { name: "Healthcare – Smart AI diagnostics", href: "/industries/healthcare" },
   { name: "Retail – AI-driven customer insights", href: "/industries/retail" },
-  { name: "Manufacturing – Intelligent automation", href: "/industries/manufacturing" },
-  { name: "Education – AI-based learning solutions", href: "/industries/education" },
+  {
+    name: "Manufacturing – Intelligent automation",
+    href: "/industries/manufacturing",
+  },
+  {
+    name: "Education – AI-based learning solutions",
+    href: "/industries/education",
+  },
 ];
 
 const socialLinks = [
