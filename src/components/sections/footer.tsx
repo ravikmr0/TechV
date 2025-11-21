@@ -199,7 +199,7 @@ export function Footer() {
         {/* WhatsApp Chat */}
         <div className="fixed bottom-4 right-4 z-50">
           <a
-            href="https://wa.me/917898849990"
+            href="https://wa.me/917895849990"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on WhatsApp"
